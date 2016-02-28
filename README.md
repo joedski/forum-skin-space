@@ -5,6 +5,16 @@ Just a little skin for a friend's forum.
 
 
 
+To Do
+-----
+
+- Combine status icon cell with title cell to remove that extra spacing
+- Finish regularizing `.layouttable` styles
+- Apply `.layouttable` to the demo HTML (especially Message Center)
+- Test `.layouttable` by writing the User Settings stuff
+
+
+
 References
 ----------
 
