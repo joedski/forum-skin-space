@@ -12,6 +12,7 @@ To Do
 - Finish regularizing `.layouttable` styles
 - Apply `.layouttable` to the demo HTML (especially Message Center)
 - Test `.layouttable` by writing the User Settings stuff
+- User controls at the top are ugly at small screen widths
 
 
 
