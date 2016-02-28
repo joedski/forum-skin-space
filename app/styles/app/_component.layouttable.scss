@@ -1,0 +1,204 @@
+// Layout Table Styles
+// Styling to do the fancy table layout stuff.
+
+/**
+Note: Nesting tables
+`.layouttable` elements must be nested in a very specific manner:
+They must have a container div wrapping them in order to prevent double-application of the border-spacing.
+
+Thus: table.layouttable *.layouttable-container table.layouttable
+Usually: table.layouttable *.layouttable-container > table.layouttable
+But it does not need to be a direct child. (EG a form may be wrapping it...)
+**/
+
+//////// General Layout
+
+//// Base
+.layouttable {
+	width: 100%;
+}
+
+.layouttable .layouttable-container {
+	margin-top: (- $spacing-general);
+	margin-left: (- $spacing-general);
+	margin-right: (- $spacing-general);
+	margin-bottom: (- $spacing-general);
+}
+
+//// Cell spacing
+.section {
+	.layouttable {
+		border-collapse: separate;
+		border-spacing: $layouttable-intercell-spacing;
+	}
+}
+
+//// Cell Padding
+.layouttable {
+	th {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	td {
+		padding-top: $layouttable-contentcell-padding;
+		padding-bottom: $layouttable-contentcell-padding;
+	}
+}
+
+
+
+//////// General Styling
+
+//// Table Headers
+.layouttable {
+	th {}
+}
+
+//// Fancy Dividers
+.layouttable {
+	// tr {
+		td, th {
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin-bottom: (- $spacing-general / 2 - 1px);
+				border-bottom: 1px solid $border-column-separater-rgba;
+			}
+		}
+
+		th {
+			&:after {
+				border-bottom: 2px solid $border-column-edge-rgba;
+			}
+		}
+
+		// &.forum-header, &:last-child {
+		// 	td, th {
+		// 		&:after {
+		// 			border-bottom: 2px solid $border-column-edge-rgba;
+		// 		}
+		// 	}
+		// }
+
+		// Only adjust the bottom row's strokes down another pixel,
+		// so that the header doesn't squish the cells.
+		.forum & {
+			&:last-child {
+				td, th {
+					&:after {
+						// It's better to use negative margins than negative positions.
+						margin-bottom: (- $spacing-general / 2 - 2px);
+					}
+				}
+			}
+		}
+	// }
+}
+
+
+
+//////// More specific styling: Forum Threads
+
+//// Column Sizing
+// These are going to be pretty specific...
+.layouttable {
+	// td, th {
+		//// Forum threads
+		// status is being inlined with the thread title.
+		// &.status {
+		// 	width: 30px;
+		// 	font-size: $text-size-detail;
+		// 	// TEMPORARY
+		// 	> * {
+		// 		display: none;
+		// 	}
+		// }
+
+		&.post-count, &.thread-count, &.thread-views, &.thread-replies {
+			width: 40px;
+		}
+
+		&.last-post {
+			width: 30%;
+		}
+
+		//// Message center
+		&.message-center-box-list {
+			width: 25%;
+		}
+
+		&.sender, &.time {
+			width: 20%;
+		}
+	// }
+}
+
+//// Cell Styling
+.layouttable {
+	.new-posts {
+		td {
+			background: $background-highlight-rgba;
+		}
+	}
+
+	.locked {
+		td {
+			background: $background-stripes-image;
+
+		}
+	}
+
+	.hot {
+		color: $text-color-attention;
+
+		.description, .subboards, .thread-starter {
+			color: inherit;
+		}
+
+		&.new-posts {
+			td {
+				background: $background-highlight-2-rgba;
+			}
+		}
+	}
+}
+
+//// Border Overrides...
+.layouttable {
+	// Specific removals
+	.message-center-controls {
+		th, td {
+			&:after {
+				content: none;
+				display: none;
+			}
+		}
+	}
+}
+
+//////// More specific styling: Message Center
+
+//// Column Sizing
+// These are going to be pretty specific...
+.layouttable {
+	td, th {
+		&.message-center-box-list {
+			width: 25%;
+		}
+
+		&.sender, &.time {
+			width: 20%;
+		}
+	}
+}
+
+//// Cell Styling
+.layouttable {
+}
+
+//// Border Overrides...

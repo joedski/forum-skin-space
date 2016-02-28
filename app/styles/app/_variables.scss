@@ -89,3 +89,10 @@ $site-spacing-sides: 20px;
 
 $spacing-general: 10px;
 $spacing-wide: 30px;
+
+
+
+//////// LayoutTable stuff
+
+$layouttable-intercell-spacing: $spacing-general + 1;
+$layouttable-contentcell-padding: $spacing-general / 2;

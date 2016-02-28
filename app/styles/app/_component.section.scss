@@ -1,0 +1,108 @@
+/*
+A section is any part of the site which has
+- an optional header with no background
+- one or more content areas with background
+
+Usual usage is thus:
+
+	.section
+		h2 Title
+		.section-contents.table-contents
+			table.layouttable
+				...
+		.section-contents
+			div.container
+				...
+
+This allows mixing table-based things and non-table-based things in the same section.
+
+
+*/
+
+//////// Section
+
+//// Layout
+
+.section {
+	margin-bottom: $spacing-wide;
+}
+
+
+
+//////// Header
+
+.section h2 {
+	@extend %site-width-block;
+
+	// Layout
+	// margin: $spacing-wide auto ($spacing-general / 2);
+	margin-top: $spacing-wide;
+	margin-bottom: ($spacing-general / 2);
+	
+	// Look
+	font-size: $text-size-header-primary;
+	font-family: $font-family-title;
+	font-weight: normal;
+
+	a {
+		@extend %unlink;
+	}
+}
+
+
+
+//////// Section Contents
+
+//// Look
+
+.section-contents {
+	background: $background-general-rgba;
+}
+
+//// Layout
+
+.section-contents {
+	padding-top: $spacing-general;
+	padding-bottom: $spacing-general;
+
+	> .container {
+		margin-left: auto;
+		margin-right: auto;
+		width: $site-width-max;
+
+		@media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+			margin-left: $site-spacing-sides;
+			margin-right: $site-spacing-sides;
+			width: auto;
+		}
+	}
+}
+
+// For containing Tables
+// This is necessary because tables on their own will take up minimal width.
+
+.section-contents.table-contents {
+	// We don't zero-out padding-bottom because of the fancy-strokes.
+	padding-top: 0;
+
+	// Note: This assumes `border-spacing: $spacing-general`!
+	> .layouttable {
+		margin-left: auto;
+		margin-right: auto;
+		// This is due to the border-spacing
+		width: ($site-width-max + 2 * $layouttable-intercell-spacing);
+	}
+
+	@media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+		padding-left: ($site-spacing-sides - $layouttable-intercell-spacing);
+		padding-right: ($site-spacing-sides - $layouttable-intercell-spacing);
+
+		> .layouttable {
+			width: 100%;
+		}
+	}
+}
+
+.section-contents + .section-contents {
+	margin-top: $spacing-general;
+}
