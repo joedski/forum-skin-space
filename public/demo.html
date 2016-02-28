@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Theme Demo - Space Theme</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="stylesheet" href="fonts.css"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Advent+Pro:400,700,300">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="font-awesome.css">
+	<link rel="stylesheet" href="app.css">
+
+	<link rel="icon" type="image/png" href="./images/icon-32.png" />
+</head>
+<body>
+	<!-- Note: This was being done at the time of a CSS refactor, hence why the markup presented here is different. -->
+
+	<h1><a href="/"><span class="logo-image"></span>SpaceSkin</a></h1>
+
+	<div id="user-control-panel">
+		<div class="avatar avatar-mini avatar-none">[Include demo avatar?]</div>
+		<div class="welcome">Welcome <a href="#member-link">Commander</a></div>
+		<div><a href="#message-center">0 Messages</a></div>
+		<div>
+			<div class="dropdown">
+				<span class="dropdown-label">My Controls</span>
+				<ul class="dropdown-menu">
+					<li><a href="#user-control-panel">My Controls</a></li>
+					<li><a href="#chat">Chat</a></li>
+					<li><a href="#member-list">Members</a></li>
+					<li><a href="#tos">Rules</a></li>
+				</ul>
+			</div>
+		</div>
+		<div><a href="#logout">Logout</a></div>
+	</div>
+
+	<div id="message-bar">An important message is being displayed.</div>
+
+	<ul id="breadcrumb">
+		<li><a href="/">Board Index</a></li>
+		<li><a href="#page">Board</a></li>
+		<li><a href="#page">Thread</a></li>
+	</ul>
+
+	<div id="content">
+		<!-- Forum: Shows the boards in the forum.  Same block is used for Subboards in a Board. -->
+		<div class="forum forum-index">
+			<h2><a href="#forum">A Forum Index or Set of Subboards</a></h2>
+
+			<div class="forum-contents">
+				<table>
+					<tbody>
+						<tr class="forum-header">
+							<th colspan="2" class="title">Board Name</th>
+							<th class="last-post">Last Post</th>
+							<th class="thread-count">Threads</th>
+							<th class="post-count">Posts</th>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title"><a href="#board">Plain Title</a></td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item new-posts">
+							<td class="status"><abbr title="New Posts"><img src="images/board-new-posts.png" alt="New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Description</a>
+								<div class="description">A summary of what this board is for</div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Subboards</a>
+								<div class="subboards">Subboards: <a href="#subboard">Subboard 1</a>, <a href="#subboard">Subboard 2</a>, <a href="#subboard">Subboard 3</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Description and Subboards</a>
+								<div class="description">A summary of what this board is for</div>
+								<div class="subboards">Subboards: <a href="#subboard">Subboard 1</a>, <a href="#subboard">Subboard 2</a>, <a href="#subboard">Subboard 3</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Board: Shows the threads in a board. -->
+		<div class="forum forum-board">
+			<div class="board-controls">
+				<div class="board-pagination">
+					Page 1 of 4 - <span class="board-pagination-pages">1, <a href="#page">2</a>, <a href="#page">3</a></span>
+				</div>
+				<div class="board-thread-controls"><a class="new-thread" href="#new-thread">New Thread</a><a class="new-poll" href="#new-poll">New Poll</a></div>
+			</div>
+
+			<div class="forum-contents">
+				<table>
+					<tbody>
+						<tr class="forum-header">
+							<th colspan="2" class="title">Topic Name</th>
+							<th class="thread-replies">Replies</th>
+							<th class="thread-views">Views</th>
+							<th class="last-post">Last Post</th>
+						</tr>
+						<!-- Thread Attributes:
+							- new-posts
+							- sticky
+							- poll
+							- locked
+							- hot
+								- Locked threads cannot be hot.
+						Some Combos:
+							- sticky
+							- sticky locked
+							- sticky poll
+							- sticky locked poll
+							- locked
+							- locked poll
+							- normal
+							- new-posts
+							- hot
+							- hot new-posts
+						-->
+						<tr class="forum-item sticky">
+							<td class="status"><abbr title="Sticky Thread"><img src="images/thread-sticky.png" alt="Sticky Thread"></abbr></td>
+							<td class="title">
+								<a href="#thread">Sticky Thread</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item sticky locked">
+							<td class="status"><abbr title="Locked Sticky Thread"><img src="images/thread-sticky-locked.png" alt="Locked Sticky Thread"></abbr></td>
+							<td class="title">
+								<a href="#thread">Locked Sticky Thread</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item sticky poll">
+							<td class="status"><abbr title="Sticky Poll"><img src="images/poll-sticky.png" alt="Sticky Poll"></abbr></td>
+							<td class="title">
+								<a href="#thread">Sticky Poll</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item sticky poll locked">
+							<td class="status"><abbr title="Locked Sticky Poll"><img src="images/poll-sticky-locked.png" alt="Locked Sticky Poll"></abbr></td>
+							<td class="title">
+								<a href="#thread">Locked Sticky Poll</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item locked">
+							<td class="status"><abbr title="Locked Thread"><img src="images/thread-locked.png" alt="Locked Thread"></abbr></td>
+							<td class="title">
+								<a href="#thread">Locked Thread</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item poll locked">
+							<td class="status"><abbr title="Locked Poll"><img src="images/poll-locked.png" alt="Locked Poll"></abbr></td>
+							<td class="title">
+								<a href="#thread">Locked Poll</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/thread.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#thread">Normal Thread</a>
+								<div class="thread-starter">Started By: <a href="#member">Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item new-posts">
+							<td class="status"><abbr title="New Posts"><img src="images/thread-new-posts.png" alt="New Posts"></abbr></td>
+							<td class="title">
+								<a href="#thread">Thread with New Posts</a>
+								<div class="thread-starter">Started By: <a href="#member">Real Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Real Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item hot">
+							<td class="status"><abbr title="Hot Thread"><img src="images/thread-hot.png" alt="Hot Thread"></abbr></td>
+							<td class="title">
+								<a href="#thread">Hot Thread</a>
+								<div class="thread-starter">Started By: <a href="#member">Real Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Real Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+						<tr class="forum-item hot new-posts">
+							<td class="status"><abbr title="Hot Thread, New Posts"><img src="images/thread-hot-new-posts.png" alt="Hot Thread, New Posts"></abbr></td>
+							<td class="title">
+								<a href="#thread">Hot Thread with New Posts</a>
+								<div class="thread-starter">Started By: <a href="#member">Real Dragons</a></div>
+							</td>
+							<td class="thread-replies">12</td>
+							<td class="thread-views">34</td>
+							<td class="last-post"><a href="#post">Last Post</a> by <a href="member">Real Dragons</a><br>
+								At Jan 23, 2016 21:34</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="board-controls">
+				<div class="board-pagination">
+					Page 1 of 4 - <span class="board-pagination-pages">1, <a href="#page">2</a>, <a href="#page">3</a></span>
+				</div>
+				<div class="board-thread-controls"><a class="new-thread" href="#new-thread">New Thread</a><a class="new-poll" href="#new-poll">New Poll</a></div>
+			</div>
+		</div>
+
+		<!-- Message Center -->
+
+		<div class="message-center">
+			<h2>Message Center (0) - Private Messages</h2>
+
+			<!-- May want to have some class on both the wrapper and the table? -->
+			<div class="message-center-contents">
+				<table>
+					<tbody>
+						<tr>
+							<th class="message-center-box-list">Box</th>
+							<td rowspan="2" class="message-center-message-list">
+								<div class="message-list-container">
+									<form action="javascript://">
+										<table class="message-list">
+											<tbody>
+												<tr class="message-center-header">
+													<th class="sender">Sender</th>
+													<th class="subject">Subject</th>
+													<th class="time">Time</th>
+												</tr>
+												<tr class="message-list-item">
+													<td class="sender"><input type="checkbox" id="msg0" value="5"><label for="msg0"><a href="#member">Dragons</a></label></td>
+													<td class="subject"><a href="#message">I noticed you don't seem to have very many dragons...</a></td>
+													<td class="time">Jan 15, 2016 17:01</td>
+												</tr>
+												<tr class="message-list-item">
+													<td class="sender"><input type="checkbox" id="msg1" value="17"><label for="msg0"><a href="#member">ForumBot</a></label></td>
+													<td class="subject"><a href="#message">Stop asking me about electric sheep.</a></td>
+													<td class="time">Dec 23, 2015 22:42</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="message-center-content-controls">
+											<div class="message-actions"><a href="#check-all">Check All</a><a href="$uncheck-all">Uncheck All</a><select name="action" id="message-action">
+												<option value="">---</option>
+												<option value="delete">Delete</option>
+												<option value="read">Mark as Read</option>
+												<option value="unread">Mark as Unread</option>
+											</select><input type="submit" name="doit" value="Do It"></div>
+											<div class="pagination">1 Page - <span class="pagination-pages">1</span></div>
+										</div>
+									</form>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="message-center-box-list">
+								<ul>
+									<li class="current">Private Messages (0)</li>
+									<li><a href="#message-box">Trash (0)</a></li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr class="message-center-controls">
+							<td colspan="2">
+								<form action="javascript://">
+									<div class="message-member-controls"><input type="text" size="20" name="name" id="sendname" value="[member]"><input type="submit" name="type" value="Send PM"></div><div class="message-staff-controls"><input type="submit" name="type" value="Send To Staff"></div>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- Key explaining what all the funny icons on the left of the threads are. -->
+	<div class="forum forum-status-key">
+		<div class="forum-contents">
+			<table>
+				<tbody>
+					<tr class="status-key-header">
+						<th colspan="4">Key</th>
+					</tr>
+					<tr class="status-key-row">
+						<td class="status">
+							<img src="images/thread.png" alt="No New Posts">
+							<span class="status-caption">No New Posts</span>
+						</td>
+						<td class="status hot">
+							<img src="images/thread-hot.png" alt="Hot Thread">
+							<span class="status-caption">Hot Thread</span>
+						</td>
+						<td class="status locked">
+							<img src="images/thread-locked.png" alt="Locked Thread">
+							<span class="status-caption">Locked Thread</span>
+						</td>
+						<td class="status poll">
+							<img src="images/poll.png" alt="Poll">
+							<span class="status-caption">Poll</span>
+						</td>
+					</tr>
+					<tr class="status-key-row">
+						<td class="status new">
+							<img src="images/thread-new.png" alt="New Posts">
+							<span class="status-caption">New Posts</span>
+						</td>
+						<td class="status hot new">
+							<img src="images/thread-hot-new.png" alt="Hot Thread, New Posts">
+							<span class="status-caption">Hot Thread, New Posts</span>
+						</td>
+						<td class="status locked">
+							<img src="images/thread-sticky.png" alt="Sticky Thread">
+							<span class="status-caption">Sticky Thread</span>
+						</td>
+						<td class="status poll">
+							<img src="images/poll-new.png" alt="Poll, New Posts">
+							<span class="status-caption">Poll, New Posts</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div id="forum-stats">
+		<div class="user-stats">
+			<div class="most-users">
+				Most users online: 10 on Dec 13, 2015
+			</div>
+			<div class="users-online">
+				<a href="#users-online">4 Online Users</a>: <a href="#member">Commander</a>, <a href="#member">Real Dragons</a>, <a href="#member">Imitation Dragons</a>, <a href="#member">Bees</a>
+			</div>
+		</div>
+		<hr>
+		<div class="post-stats">
+			There are 287 posts in 82 topics by 10 members<br>
+			Last Post: <a href="#thread-post">The Heinous Salacity of Lord Oberratethex XXVI</a> by <a href="#member">Bees</a> at 2016-01-13 11:35<br>
+			Newest Member: <a href="#member">Yet More Bees</a>
+		</div>
+	</div>
+
+	<div id="footer">
+		<a href="#tos">Rules and Terms of Service</a> &middot; <a href="#privacy-policy">Privacy Policy</a><br>
+		Powered by <a href="#forum-creator">Real Dragons</a>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

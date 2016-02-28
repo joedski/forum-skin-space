@@ -1,0 +1,950 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  box-sizing: content-box; /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+@charset "UTF-8";
+/* 
+Mixins and discrete block definitions.
+*/
+/* line 11, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.clearfix {
+  *zoom: 1; }
+  /* line 14, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  .clearfix:before, .clearfix:after {
+    display: table;
+    content: " ";
+    line-height: 0; }
+  /* line 22, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  .clearfix:after {
+    clear: both; }
+
+/* line 30, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+body, html {
+  text-align: left;
+  color: #E6F1F2;
+  font-size: 14px;
+  font-family: "Exo 2", sans-serif; }
+
+/* line 42, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.dropdown-label {
+  color: #EA8326;
+  text-decoration: none; }
+
+/* line 47, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+a {
+  color: #EA8326;
+  text-decoration: none; }
+  /* line 51, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  a:hover {
+    text-decoration: underline; }
+  /* line 55, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  a:visited {
+    color: #EA8326; }
+
+/* line 61, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+h1 a, .forum h2 a, .message-center h2 a {
+  color: inherit;
+  text-decoration: none; }
+  /* line 65, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  h1 a:hover, .forum h2 a:hover, .message-center h2 a:hover, h1 a:visited, .forum h2 a:visited, .message-center h2 a:visited {
+    color: inherit;
+    text-decoration: none; }
+
+/* line 72, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.forum-item .title > a {
+  color: inherit;
+  text-decoration: none; }
+  /* line 76, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  .forum-item .title > a:hover, .forum-item .title > a:visited {
+    color: inherit;
+    text-decoration: underline; }
+
+/* line 84, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.dropdown-menu, #breadcrumb, .message-center-box-list ul {
+  margin: 0;
+  padding: 0; }
+  /* line 88, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  .dropdown-menu > li, #breadcrumb > li, .message-center-box-list ul > li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+
+/* line 98, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#breadcrumb, .forum h2, .board-controls, #forum-stats > *, #footer, .message-center h2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px; }
+  @media screen and (max-width: 1240px) {
+    /* line 98, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+    #breadcrumb, .forum h2, .board-controls, #forum-stats > *, #footer, .message-center h2 {
+      margin-left: 20px;
+      margin-right: 20px;
+      width: auto; } }
+
+/* line 110, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#forum-stats {
+  background: rgba(31, 37, 43, 0.75);
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+/* line 134, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.forum .forum-contents > table, .message-center-contents > table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1220px; }
+
+@media screen and (max-width: 1240px) {
+  /* line 117, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  .forum .forum-contents, .message-center-contents {
+    padding-left: 10px;
+    padding-right: 10px; }
+    /* line 144, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+    .forum .forum-contents > table, .message-center-contents > table {
+      width: 100%; } }
+
+/* line 154, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+h1 {
+  font-size: 3.5em;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 300;
+  color: #E6F1F2; }
+
+/* line 165, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#user-control-panel {
+  text-align: center;
+  background: rgba(31, 37, 43, 0.75);
+  padding: 10px 0; }
+
+/* line 171, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#message-bar {
+  text-align: center;
+  background: rgba(48, 58, 64, 0.78);
+  color: #ffdd99;
+  padding: 10px 0; }
+
+/* line 182, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#breadcrumb {
+  color: #A6CDD1;
+  padding: 5px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(166, 205, 209, 0.75); }
+
+/* line 193, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#breadcrumb > li a, #breadcrumb > li a:hover, #breadcrumb > li a:active {
+  color: #A6CDD1; }
+
+/* line 197, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+#breadcrumb > li:last-child a, #breadcrumb > li:last-child a:hover, #breadcrumb > li:last-child a:active {
+  color: #E6F1F2; }
+
+/* line 205, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+.forum h2, .message-center h2 {
+  font-size: 2em;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 5px; }
+
+/* line 219, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+input[type=submit], select, .board-thread-controls a {
+  display: inline-block;
+  padding: 0 0.7em;
+  line-height: 1.6;
+  background: rgba(48, 58, 64, 0.78);
+  border-radius: 5px;
+  border: 2px solid rgba(166, 205, 209, 0.5); }
+  /* line 221, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/_mixins.scss */
+  input[type=submit], select, .board-thread-controls a, input[type=submit]:hover, select:hover, .board-thread-controls a:hover, input[type=submit]:visited, select:visited, .board-thread-controls a:visited {
+    color: #A6CDD1;
+    text-decoration: none; }
+
+/* line 14, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+html {
+  background: url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center black;
+  background-size: 1000px auto;
+  background: url(./images/Planet-with-Sun-860.png) no-repeat top center, black url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center;
+  background-size: 860px auto, 1000px auto; }
+
+/* line 31, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+hr {
+  color: rgba(166, 205, 209, 0.5);
+  background: rgba(166, 205, 209, 0.5);
+  border: 0 solid transparent;
+  height: 1px; }
+
+/* line 50, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 100px; }
+  /* line 60, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  h1 .logo-image {
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    vertical-align: middle;
+    padding-right: 0.35em; }
+  /* line 68, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  h1 .logo-image:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -46.5px;
+    height: 83px;
+    width: 47px;
+    background: url(./images/logo-mark-@2x.png) center no-repeat;
+    background-size: 47px 83px; }
+
+/* line 92, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#user-control-panel > * {
+  display: inline-block; }
+  /* line 95, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  #user-control-panel > *:not(.avatar) + *:not(.avatar):before {
+    content: '• ';
+    padding: 0 10px; }
+
+/* line 103, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#user-control-panel .avatar.avatar-none {
+  display: none; }
+
+/* line 111, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+/* line 119, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.dropdown-label:after {
+  content: 'v';
+  margin-left: 10px; }
+
+/* line 126, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.dropdown-menu {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  white-space: nowrap;
+  text-align: left;
+  margin: -10px;
+  padding: 5px;
+  background: rgba(48, 58, 64, 0.78); }
+  /* line 145, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .dropdown-menu a {
+    display: block;
+    padding: 5px; }
+  /* line 150, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .dropdown:hover > .dropdown-menu, .dropdown:active > .dropdown-menu, .dropdown:focus > .dropdown-menu {
+    display: block; }
+
+/* line 168, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#breadcrumb > li {
+  display: inline-block; }
+
+/* line 172, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#breadcrumb > li + li:before {
+  content: '»';
+  margin: 0 10px; }
+
+/* line 178, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#breadcrumb > li a {
+  display: inline-block; }
+
+/* line 213, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum .forum-contents {
+  background: rgba(31, 37, 43, 0.75); }
+
+/* line 217, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum table {
+  z-index: 0; }
+
+/* line 221, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum td, .forum th {
+  vertical-align: middle;
+  position: relative;
+  z-index: 2; }
+  /* line 227, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum td:before, .forum td:after, .forum th:before, .forum th:after {
+    z-index: -1; }
+
+/* line 235, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-header td, .forum-header th {
+  font-size: 0.64286em;
+  font-weight: bold;
+  font-family: "Advent Pro", sans-serif;
+  text-transform: uppercase;
+  color: #97b4bd; }
+
+/* line 246, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum td, .forum th {
+  text-align: left; }
+  /* line 249, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum td.last-post, .forum td.post-count, .forum td.thread-count, .forum td.thread-views, .forum td.thread-replies, .forum th.last-post, .forum th.post-count, .forum th.thread-count, .forum th.thread-views, .forum th.thread-replies {
+    text-align: right; }
+
+/* line 262, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item .title .description, .forum-item .title .subboards, .forum-item .title .thread-starter {
+  color: #97b4bd;
+  font-size: 0.71429em; }
+
+/* line 268, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-index .forum-item .title > a {
+  font-size: 1.5em;
+  font-family: "Advent Pro", sans-serif; }
+
+/* line 273, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item .last-post {
+  font-size: 0.85714em; }
+
+/* line 415, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum {
+  margin-bottom: 30px; }
+  /* line 418, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum .forum-contents {
+    padding-bottom: 10px; }
+
+/* line 427, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum table {
+  border-collapse: separate;
+  border-spacing: 11px; }
+
+/* line 436, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum td.status, .forum th.status {
+  width: 30px;
+  font-size: 0.71429em; }
+  /* line 440, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum td.status > *, .forum th.status > * {
+    display: none; }
+
+/* line 445, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum td.post-count, .forum td.thread-count, .forum td.thread-views, .forum td.thread-replies, .forum th.post-count, .forum th.thread-count, .forum th.thread-views, .forum th.thread-replies {
+  width: 40px; }
+
+/* line 449, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum td.last-post, .forum th.last-post {
+  width: 30%; }
+
+/* line 457, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-header td, .forum-header th {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+/* line 464, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item td, .forum-item th {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+/* line 473, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item.new-posts td, .forum-item.new-posts th {
+  background: rgba(166, 205, 209, 0.1); }
+
+/* line 479, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item.locked td, .forum-item.locked th {
+  background: url("./images/stripes-010.png"); }
+
+/* line 485, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum-item.hot {
+  color: #ffdd99; }
+  /* line 488, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum-item.hot .description, .forum-item.hot .subboards, .forum-item.hot .thread-starter {
+    color: inherit; }
+  /* line 493, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .forum-item.hot.new-posts td, .forum-item.hot.new-posts th {
+    background: rgba(255, 222, 59, 0.1); }
+
+/* line 504, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum tr td:after, .forum tr th:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: -6px;
+  border-bottom: 1px solid rgba(166, 205, 209, 0.5); }
+
+/* line 518, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum tr.forum-header td:after, .forum tr.forum-header th:after, .forum tr:last-child td:after, .forum tr:last-child th:after {
+  border-bottom: 2px solid rgba(166, 205, 209, 0.75); }
+
+/* line 528, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.forum tr:last-child td:after, .forum tr:last-child th:after {
+  margin-bottom: -7px; }
+
+/* line 538, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.board-controls {
+  line-height: 1.6;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+/* line 546, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.board-pagination {
+  float: left; }
+
+/* line 551, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.board-thread-controls {
+  text-align: right; }
+  /* line 557, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .board-thread-controls a + a {
+    margin-left: 1em; }
+  /* line 562, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .board-thread-controls a.new-thread:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "";
+    margin-right: 0.5em; }
+  /* line 569, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .board-thread-controls a.new-poll:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "";
+    margin-right: 0.5em; }
+
+/* line 579, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#forum-stats {
+  color: #A6CDD1; }
+  /* line 584, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  #forum-stats > * {
+    position: relative; }
+    /* line 588, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+    #forum-stats > *:after {
+      content: '';
+      display: block;
+      clear: both; }
+  /* line 595, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  #forum-stats .most-users {
+    float: right;
+    width: 50%;
+    text-align: right; }
+  /* line 601, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  #forum-stats .users-online {
+    float: left;
+    width: 50%;
+    text-align: left; }
+  /* line 607, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  #forum-stats .post-stats {
+    font-size: 0.85714em; }
+
+/* line 612, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+#footer {
+  color: #97b4bd;
+  text-align: center;
+  font-size: 0.64286em;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 30px; }
+
+/* line 630, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center {
+  margin-bottom: 30px; }
+  /* line 642, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .message-center table {
+    z-index: 0; }
+  /* line 646, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .message-center td, .message-center th {
+    vertical-align: middle;
+    position: relative;
+    z-index: 2; }
+    /* line 652, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+    .message-center td:before, .message-center td:after, .message-center th:before, .message-center th:after {
+      z-index: -1; }
+
+/* line 658, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center-contents {
+  padding-bottom: 10px;
+  background: rgba(31, 37, 43, 0.75); }
+
+/* line 666, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-list-container {
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px; }
+  /* line 671, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+  .message-list-container .message-center-content-controls {
+    margin-left: 10px;
+    margin-right: 10px; }
+
+/* line 677, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-list {
+  width: 100%; }
+
+/* line 682, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center-contents > table, .message-list-container > form > table {
+  border-collapse: separate;
+  border-spacing: 11px; }
+
+/* line 690, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center td.message-center-box-list, .message-center th.message-center-box-list {
+  width: 25%; }
+
+/* line 694, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center td.sender, .message-center td.time, .message-center th.sender, .message-center th.time {
+  width: 20%; }
+
+/* line 702, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center th {
+  height: 1em;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+/* line 712, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center td.message-center-box-list {
+  vertical-align: top; }
+
+/* line 725, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-list-item td, .message-list-item th {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+/* line 736, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center td:after, .message-center th:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: -6px;
+  border-bottom: 1px solid rgba(166, 205, 209, 0.5); }
+
+/* line 749, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center th:after {
+  border-bottom: 2px solid rgba(166, 205, 209, 0.75); }
+
+/* line 756, /Users/Joe/Dropbox/Work/Personal/Infinitas Forum Skin/infinitas-forum-skin/app/styles/app/app.scss */
+.message-center .message-center-controls th:after, .message-center .message-center-controls td:after {
+  content: none;
+  display: none; }
+
+/* Note: Eventually these should be moved to <link> tags as @imports prevent parallel downloads. */
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Advent+Pro:400,700,300);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+
+/*# sourceMappingURL=app.css.map*/

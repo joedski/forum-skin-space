@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test - Filling Table Cells Vertically in IE</title>
+
+	<style>
+	#initial td:before {
+		content: '';
+		background: rgba(64,96,128,0.3);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	#initial td {
+		position: relative;
+	}
+
+	#tr-td-height tr {
+		height: 100%;
+		/*This has no effect*/
+		/*position: relative;*/
+	}
+	#tr-td-height td {
+		height: 100%;
+		position: relative;
+	}
+	#tr-td-height td div {
+		/*content: 'beep';*/
+		/*display: block;*/
+		background: rgba(64,96,128,0.3);
+
+		height: 100%;
+		width: 100%;
+
+		position: relative;
+	}
+	</style>
+</head>
+<body>
+	<div id="initial">
+		<table>
+			<tr>
+				<td>This<br>cell<br>has<br>lots<br>of<br>height</td>
+				<td>This cell does not</td>
+				<td>I am a<br>helicopter</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="tr-td-height">
+		<table>
+			<tr>
+				<td>This<br>cell<br>has<br>lots<br>of<br>height</td>
+				<td><div>This cell does not</div></td>
+				<td>I am a<br>helicopter</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

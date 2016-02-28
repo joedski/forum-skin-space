@@ -1,0 +1,9 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "dependencies": {
+    "normalize-css": "normalize.css#~3.0.3"
+  },
+  "overrides": {}
+}
