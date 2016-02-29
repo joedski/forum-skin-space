@@ -154,8 +154,12 @@ h1 {
 
 //// Message Box
 
-#message-bar {
+.message-bar {
 	@extend %message-bar;
+
+	& + .message-bar {
+		margin-top: $spacing-wide;
+	}
 }
 
 //// Bread Crumb
@@ -198,93 +202,105 @@ h1 {
 #content {}
 
 //// Forum Boards, Threads
+@import "component.section";
+@import "component.layouttable";
 
-// General layout
-.forum {
-	h2 {
-		@extend %site-width-block;
-		@extend %section-header;
+// // General layout
+// .forum {
+// 	h2 {
+// 		@extend %site-width-block;
+// 		@extend %section-header;
 
-		a {
-			@extend %unlink;
-		}
-	}
+// 		a {
+// 			@extend %unlink;
+// 		}
+// 	}
 
-	.forum-contents {
-		background: $background-general-rgba;
-	}
+// 	.forum-contents {
+// 		background: $background-general-rgba;
+// 	}
 
-	table {
-		z-index: 0;
-	}
+// 	table {
+// 		z-index: 0;
+// 	}
 
-	td, th {
-		vertical-align: middle;
-		position: relative;
+// 	td, th {
+// 		vertical-align: middle;
+// 		position: relative;
 
-		z-index: 2;
+// 		z-index: 2;
 
-		&:before, &:after {
-			z-index: -1;
-		}
-	}
-}
+// 		&:before, &:after {
+// 			z-index: -1;
+// 		}
+// 	}
+// }
 
-// Table column headers
-.forum-header {
-	td, th {
-		font-size: $text-size-table-header;
-		font-weight: bold;
-		font-family: $font-family-title;
-		text-transform: uppercase;
-		color: $text-color-middle-dimmed;
-	}
-}
+// // Table column headers
+// .forum-header {
+// 	td, th {
+// 		font-size: $text-size-table-header;
+// 		font-weight: bold;
+// 		font-family: $font-family-title;
+// 		text-transform: uppercase;
+// 		color: $text-color-middle-dimmed;
+// 	}
+// }
 
-// Column text alignment
-.forum {
-	td, th {
-		text-align: left;
+// // Column text alignment
+// .forum {
+// 	td, th {
+// 		text-align: left;
 
-		&.last-post, &.post-count, &.thread-count, &.thread-views, &.thread-replies {
-			text-align: right;
-		}
-	}
-}
+// 		&.last-post, &.post-count, &.thread-count, &.thread-views, &.thread-replies {
+// 			text-align: right;
+// 		}
+// 	}
+// }
 
 // Forum-item font styling
-.forum-item {
-	.title {
-		> a {
-			@extend %unlink-hoverable;
-		}
+// .forum-item {
+// 	.title {
+// 		> a {
+// 			@extend %unlink-hoverable;
+// 		}
 
-		.description, .subboards, .thread-starter {
-			color: $text-color-middle-dimmed;
-			font-size: $text-size-detail;
-		}
-	}
+// 		.description, .subboards, .thread-starter {
+// 			color: $text-color-middle-dimmed;
+// 			font-size: $text-size-detail;
+// 		}
+// 	}
 
-	.forum-index & .title > a {
-		font-size: $text-size-header-secondary;
-		font-family: $font-family-title;
-	}
+// 	.forum-index & .title > a {
+// 		font-size: $text-size-header-secondary;
+// 		font-family: $font-family-title;
+// 	}
 
-	.last-post {
-		font-size: $text-size-note;
-	}
-}
+// 	.last-post {
+// 		font-size: $text-size-note;
+// 	}
+// }
 
 
 
-//// Fancy Table Styling
-/// Trial 1: Works in all browsers except IE9 ~ IE11
+// //// Fancy Table Styling
+// /// Trial 2: Works in all major browsers, but the status icon is separated from the title.
+// // Base Layout
 // .forum {
+// 	margin-bottom: $spacing-wide;
+
 // 	.forum-contents {
-// 		padding-top: $spacing-general;
-// 		padding-bottom: $spacing-general * 1.5;
+// 		padding-bottom: $spacing-general;
 
 // 		@extend %site-width-container-with-table;
+// 	}
+// }
+
+// // Cell Spacing
+// .forum {
+// 	table {
+// 		border-collapse: separate;
+// 		border-spacing: $spacing-general + 1;
 // 	}
 // }
 
@@ -300,8 +316,8 @@ h1 {
 // 			}
 // 		}
 
-// 		&.post-count, &.thread-count, &.thread-views {
-// 			width: 3em;
+// 		&.post-count, &.thread-count, &.thread-views, &.thread-replies {
+// 			width: 40px;
 // 		}
 
 // 		&.last-post {
@@ -310,35 +326,47 @@ h1 {
 // 	}
 // }
 
-// // Inter-column spacing
-// .forum {
-// 	table {
-// 		border-collapse: separate;
-// 		border-spacing: 0;
-// 	}
-
+// // Cell Padding
+// .forum-header {
 // 	td, th {
-// 		border-right: ($spacing-general / 2) solid transparent;
-// 		border-left: ($spacing-general / 2) solid transparent;
-
-// 		&:last-child, &.status {
-// 			border-right: 0 none transparent;
-// 		}
-
-// 		&:first-child, &.title {
-// 			border-left: 0 none transparent;
-// 		}
+// 		padding-top: 0;
+// 		padding-bottom: 0;
 // 	}
 // }
 
-// // Inter-row spacing (or Content Padding)
-// .forum {
-// 	tr.forum-item {
-// 		td {
-// 			// Bottom has +1 padding for the dividers.
-// 			// padding: $spacing-general 0 ($spacing-general + 1);
-// 			padding-top: $spacing-general;
-// 			padding-bottom: ($spacing-general + 1);
+// .forum-item {
+// 	td, th {
+// 		padding-top: ($spacing-general / 2);
+// 		padding-bottom: ($spacing-general / 2);
+// 	}
+// }
+
+// // Cell Styling
+// .forum-item {
+// 	&.new-posts {
+// 		td, th {
+// 			background: $background-highlight-rgba;
+// 		}
+// 	}
+
+// 	&.locked {
+// 		td, th {
+// 			background: $background-stripes-image;
+
+// 		}
+// 	}
+
+// 	&.hot {
+// 		color: $text-color-attention;
+
+// 		.description, .subboards, .thread-starter {
+// 			color: inherit;
+// 		}
+
+// 		&.new-posts {
+// 			td, th {
+// 				background: $background-highlight-2-rgba;
+// 			}
 // 		}
 // 	}
 // }
@@ -354,13 +382,8 @@ h1 {
 // 				bottom: 0;
 // 				left: 0;
 // 				right: 0;
+// 				margin-bottom: (- $spacing-general / 2 - 1px);
 // 				border-bottom: 1px solid $border-column-separater-rgba;
-// 			}
-// 		}
-
-// 		&.forum-header {
-// 			td, th {
-// 				padding-bottom: 5px;
 // 			}
 // 		}
 
@@ -378,161 +401,12 @@ h1 {
 // 			td, th {
 // 				&:after {
 // 					// It's better to use negative margins than negative positions.
-// 					margin-bottom: -1px;
+// 					margin-bottom: (- $spacing-general / 2 - 2px);
 // 				}
 // 			}
 // 		}
 // 	}
 // }
-
-// // Fancy Backgrounds
-// .forum {
-// 	tr.forum-item {
-// 		.contents {
-// 			height: 100%;
-// 		}
-
-// 		&.new-posts {
-// 			td, th {
-// 				&:before {
-// 					content: '';
-// 					display: block;
-// 					position: absolute;
-// 					top: ($spacing-general / 2);
-// 					bottom: ($spacing-general / 2 + 1);
-// 					left: 0;
-// 					right: 0;
-// 					background: $background-highlight-rgba;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-//// Fancy Table Styling
-/// Trial 2: Works in all major browsers, but the status icon is separated from the title.
-// Base Layout
-.forum {
-	margin-bottom: $spacing-wide;
-
-	.forum-contents {
-		padding-bottom: $spacing-general;
-
-		@extend %site-width-container-with-table;
-	}
-}
-
-// Cell Spacing
-.forum {
-	table {
-		border-collapse: separate;
-		border-spacing: $spacing-general + 1;
-	}
-}
-
-// Column sizing
-.forum {
-	td, th {
-		&.status {
-			width: 30px;
-			font-size: $text-size-detail;
-			// TEMPORARY
-			> * {
-				display: none;
-			}
-		}
-
-		&.post-count, &.thread-count, &.thread-views, &.thread-replies {
-			width: 40px;
-		}
-
-		&.last-post {
-			width: 30%;
-		}
-	}
-}
-
-// Cell Padding
-.forum-header {
-	td, th {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-}
-
-.forum-item {
-	td, th {
-		padding-top: ($spacing-general / 2);
-		padding-bottom: ($spacing-general / 2);
-	}
-}
-
-// Cell Styling
-.forum-item {
-	&.new-posts {
-		td, th {
-			background: $background-highlight-rgba;
-		}
-	}
-
-	&.locked {
-		td, th {
-			background: $background-stripes-image;
-
-		}
-	}
-
-	&.hot {
-		color: $text-color-attention;
-
-		.description, .subboards, .thread-starter {
-			color: inherit;
-		}
-
-		&.new-posts {
-			td, th {
-				background: $background-highlight-2-rgba;
-			}
-		}
-	}
-}
-
-// Fancy Dividers
-.forum {
-	tr {
-		td, th {
-			&:after {
-				content: '';
-				display: block;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				margin-bottom: (- $spacing-general / 2 - 1px);
-				border-bottom: 1px solid $border-column-separater-rgba;
-			}
-		}
-
-		&.forum-header, &:last-child {
-			td, th {
-				&:after {
-					border-bottom: 2px solid $border-column-edge-rgba;
-				}
-			}
-		}
-
-		// Only adjust the bottom row's strokes down another pixel,
-		// so that the header doesn't squish the cells.
-		&:last-child {
-			td, th {
-				&:after {
-					// It's better to use negative margins than negative positions.
-					margin-bottom: (- $spacing-general / 2 - 2px);
-				}
-			}
-		}
-	}
-}
 
 //// Forum: Board Controls
 .board-controls {
@@ -664,9 +538,9 @@ h1 {
 
 // Base Layout: Subtable
 .message-list-container {
-	margin-top: (- $spacing-general);
-	margin-left: (- $spacing-general);
-	margin-right: (- $spacing-general);
+	// margin-top: (- $spacing-general);
+	// margin-left: (- $spacing-general);
+	// margin-right: (- $spacing-general);
 
 	.message-center-content-controls {
 		margin-left: $spacing-general;

@@ -19,4 +19,4 @@ To Do
 References
 ----------
 
-- [Faviconit.com](http://faviconit.com/) generates a favicon from a large master.  Not necessarily the most optimal solution, but a good way to start for sure.
+- [Faviconit.com](http://faviconit.com/) generates a favicon from a large master, along with all the HTML.  Not necessarily the most optimal solution for the images, but a good way to start for sure.

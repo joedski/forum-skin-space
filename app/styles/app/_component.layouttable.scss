@@ -9,6 +9,8 @@ They must have a container div wrapping them in order to prevent double-applicat
 Thus: table.layouttable *.layouttable-container table.layouttable
 Usually: table.layouttable *.layouttable-container > table.layouttable
 But it does not need to be a direct child. (EG a form may be wrapping it...)
+
+Note: Only use <tbody>.  <thead> is not recommended for layouttable.
 **/
 
 //////// General Layout
@@ -16,13 +18,35 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 //// Base
 .layouttable {
 	width: 100%;
+
+	> tr, > tbody > tr, > thead > tr {
+		> td, > th {
+			position: relative;
+		}
+	}
+}
+
+//// Z-Indexing
+.layouttable {
+	// This allows us to avoid covering anything with border elements
+	z-index: 0;
+
+	> tr, > tbody > tr, > thead > tr {
+		> td, > th {
+			z-index: 2;
+
+			&:before, &:after {
+				z-index: -1;
+			}
+		}
+	}
 }
 
 .layouttable .layouttable-container {
-	margin-top: (- $spacing-general);
-	margin-left: (- $spacing-general);
-	margin-right: (- $spacing-general);
-	margin-bottom: (- $spacing-general);
+	margin-top: (- ($layouttable-intercell-spacing + $layouttable-contentcell-padding));
+	margin-left: (- $layouttable-intercell-spacing);
+	margin-right: (- $layouttable-intercell-spacing);
+	margin-bottom: (- $layouttable-intercell-spacing);
 }
 
 //// Cell spacing
@@ -35,14 +59,16 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 
 //// Cell Padding
 .layouttable {
-	th {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
+	> tr, > tbody > tr, > thead > tr {
+		> th {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 
-	td {
-		padding-top: $layouttable-contentcell-padding;
-		padding-bottom: $layouttable-contentcell-padding;
+		> td {
+			padding-top: $layouttable-contentcell-padding;
+			padding-bottom: $layouttable-contentcell-padding;
+		}
 	}
 }
 
@@ -50,15 +76,67 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 
 //////// General Styling
 
+//// Default Alignment
+.layouttable {
+	> tr, > tbody > tr, > thead > tr {
+		> td, > th {
+			text-align: left;
+			vertical-align: middle;
+		}
+	}
+}
+
+//// General Font Work
+.layouttable {
+	> tr, > tbody > tr, > thead > tr {
+		> td {
+			&.title {
+				.title-content > a {
+					@extend %unlink-hoverable;
+				}
+
+				.item-detail, .description, .subboards, .thread-starter {
+					color: $text-color-middle-dimmed;
+					font-size: $text-size-detail;
+				}
+			}
+
+			&.last-post {
+				font-size: $text-size-note;
+			}
+		}
+	}
+}
+
+.forum-index .layouttable {
+	> tr, > tbody > tr, > thead > tr {
+		> td {
+			&.title .title-content > a {
+				font-size: $text-size-header-secondary;
+				font-family: $font-family-title;
+			}
+		}
+	}
+}
+
 //// Table Headers
 .layouttable {
-	th {}
+	> tr, > tbody > tr, > thead > tr {
+		> th {
+			font-size: $text-size-table-header;
+			font-weight: bold;
+			font-family: $font-family-title;
+			text-transform: uppercase;
+			color: $text-color-middle-dimmed;
+		}
+	}
 }
 
 //// Fancy Dividers
 .layouttable {
+	> tr, > tbody > tr, > thead > tr {
 	// tr {
-		td, th {
+		> td, > th {
 			&:after {
 				content: '';
 				display: block;
@@ -71,7 +149,7 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 			}
 		}
 
-		th {
+		> th {
 			&:after {
 				border-bottom: 2px solid $border-column-edge-rgba;
 			}
@@ -84,30 +162,48 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 		// 		}
 		// 	}
 		// }
+		&:last-child {
+			> td, > th {
+				&:after {
+					border-bottom: 2px solid $border-column-edge-rgba;
+				}
+			}
+		}
 
 		// Only adjust the bottom row's strokes down another pixel,
 		// so that the header doesn't squish the cells.
-		.forum & {
+		// .forum & {
 			&:last-child {
-				td, th {
+				> td, > th {
 					&:after {
 						// It's better to use negative margins than negative positions.
 						margin-bottom: (- $spacing-general / 2 - 2px);
 					}
 				}
 			}
-		}
+		// }
 	// }
+	}
 }
 
 
 
 //////// More specific styling: Forum Threads
 
-//// Column Sizing
-// These are going to be pretty specific...
+//// Default Alignment
 .layouttable {
-	// td, th {
+	> tr, > tbody > tr, > thead > tr {
+		> td, > th {
+			&.last-post, &.post-count, &.thread-count, &.thread-views, &.thread-replies {
+				text-align: right;
+			}
+		}
+	}
+}
+
+//// Column Sizing
+.layouttable {
+	td, th {
 		//// Forum threads
 		// status is being inlined with the thread title.
 		// &.status {
@@ -126,31 +222,17 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 		&.last-post {
 			width: 30%;
 		}
-
-		//// Message center
-		&.message-center-box-list {
-			width: 25%;
-		}
-
-		&.sender, &.time {
-			width: 20%;
-		}
-	// }
+	}
 }
 
 //// Cell Styling
 .layouttable {
-	.new-posts {
-		td {
-			background: $background-highlight-rgba;
-		}
+	.new-posts > td, td.new-posts {
+		background: $background-highlight-rgba;
 	}
 
-	.locked {
-		td {
-			background: $background-stripes-image;
-
-		}
+	.locked > td, td.locked {
+		background: $background-stripes-image;
 	}
 
 	.hot {
@@ -159,12 +241,55 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 		.description, .subboards, .thread-starter {
 			color: inherit;
 		}
+	}
 
-		&.new-posts {
-			td {
-				background: $background-highlight-2-rgba;
-			}
+	.hot.new-posts > td, td.hot.new-posts {
+		background: $background-highlight-2-rgba;
+	}
+}
+
+//// Status Icons
+.layouttable {
+	td.with-status {
+		white-space: nowrap;
+
+		> .status {
+			width: 30px;
 		}
+
+		> .status abbr {
+			border-bottom: 0 none transparent;
+		}
+
+		// Note: This breaks down when titles are really long...
+		// maybe there's another way to do this without making a tonne of extra markup.
+		// Update: So, just adding a margin to the last element that's the width of the
+		// status icon fixes this.
+		// As far as I can tell, what's happening is this:
+		// When td.with-status gets white-space:nowrap, inline blocks still have
+		// their widths calculated as though they did wrap, which means any elements
+		// too long to fit with others end up on a new line.
+		// But, since these children are white-space:normal,
+		// their contents DO wrap, but still at the full width if they have too much content.
+		// Adding a margin to the last child is a bodge fix, but does reserve enough space
+		// to offset the icon.
+		// > .status, > .title-content {
+		> * {
+			white-space: normal;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		> *:last-child {
+			margin-right: 30px;
+		}
+	}
+}
+
+//// Status Stuff: Status-Key Specific
+.section.forum-status-key .layouttable {
+	td.with-status {
+		width: 25%;
 	}
 }
 
@@ -186,13 +311,15 @@ But it does not need to be a direct child. (EG a form may be wrapping it...)
 //// Column Sizing
 // These are going to be pretty specific...
 .layouttable {
-	td, th {
-		&.message-center-box-list {
-			width: 25%;
-		}
+	> tr, > tbody > tr, > thead > tr {
+		> td, > th {
+			&.message-center-box-list {
+				width: 25%;
+			}
 
-		&.sender, &.time {
-			width: 20%;
+			&.sender, &.time {
+				width: 20%;
+			}
 		}
 	}
 }
