@@ -281,7 +281,8 @@ Note: Only use <tbody>.  <thead> is not recommended for layouttable.
 		}
 
 		> *:last-child {
-			margin-right: 30px;
+			// 5px to make up for the space character between the inline blocks...
+			margin-right: (30px + 5px);
 		}
 	}
 }
@@ -305,6 +306,63 @@ Note: Only use <tbody>.  <thead> is not recommended for layouttable.
 		}
 	}
 }
+
+//////// More specific styling: Forum Thread
+//// Table Headers
+.layouttable.thread-post {
+	> tr, > tbody > tr, > thead > tr {
+		> th {
+			font-size: $text-size-header-secondary;
+			font-family: $font-family-title;
+			font-weight: normal;
+			font-family: $font-family-title;
+			text-transform: none;
+			color: $text-color-middle-dimmed;
+
+			vertical-align: bottom;
+
+			.post-title {
+				float: left;
+			}
+
+			.post-date {
+				font-size: $text-size-base;
+				font-family: $font-family-copy;
+				float: right;
+			}
+		}
+	}
+}
+
+.layouttable.thread-post {
+	> tr, > tbody > tr, > thead > tr {
+		> td.member-info {
+			width: 150px;
+			vertical-align: top;
+			color: $text-color-middle-dimmed;
+		}
+	}
+}
+
+.member-info {
+	.member-portrait {
+		max-width: 150px;
+		max-height: 150px;
+		background: $background-highlight-rgba;
+	}
+
+	.member-title {
+		background: $background-highlight-rgba;
+		font-size: $text-size-header-secondary;
+		font-family: $font-family-title;
+		text-align: center;
+		padding-top: $spacing-general;
+		padding-bottom: $spacing-general;
+		margin-bottom: $spacing-general;
+	}
+}
+
+
 
 //////// More specific styling: Message Center
 

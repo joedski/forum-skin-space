@@ -8,6 +8,7 @@
     "url": ""
   },
   "scripts": {
+    "build": "brunch build --production",
     "start": "brunch watch --server"
   },
   "dependencies": {
