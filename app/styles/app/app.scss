@@ -202,8 +202,9 @@ h1 {
 #content {}
 
 //// Forum Boards, Threads
-@import "component.section";
-@import "component.layouttable";
+@import "section";
+@import "layouttable";
+@import "button";
 
 //// Forum: Board Controls
 .board-controls {
@@ -223,7 +224,7 @@ h1 {
 	text-align: right;
 
 	a {
-		@extend %button;
+		// @extend %button;
 
 		& + a {
 			margin-left: 1em;
