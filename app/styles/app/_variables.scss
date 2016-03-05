@@ -34,6 +34,8 @@ $text-color-bright: #E6F1F2;
 // This is also used for text on buttons.
 $text-color-middle: #A6CDD1;
 
+$text-color-middle-bright: mix($text-color-bright, $text-color-middle, 76%);
+
 // This gets used in table column headers and forum-item details.
 $text-color-middle-dimmed: #97b4bd;
 
