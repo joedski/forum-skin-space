@@ -1,0 +1,59 @@
+// copied from bootstrap's button css.
+
+.btn {
+	// color: $text-color-middle;
+	display: inline-block;
+	vertical-align: middle;
+
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	white-space: nowrap;
+
+	// padding: 0.2em 0.7em;
+	padding: 0 0.7em;
+	margin-bottom: 0;
+
+	// This may make things look funny later.
+	line-height: 1.6;
+
+	background: $background-general-highlight-rgba;
+	border-radius: 4px;
+	border: 1px solid $border-column-separater-rgba;
+
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none; // IE10+
+	        user-select: none;
+
+	// From %unlink.
+	&, &:hover, &:visited, &.focus {
+		color: $text-color-middle;
+		text-decoration: none;
+	}
+
+	&, &:active, &.active {
+		&:focus, &.focus {
+			// Default
+			outline: thin dotted;
+			// WebKit
+			outline: 5px auto -webkit-focus-ring-color;
+			outline-offset: -2px;
+		}
+	}
+
+	&:active, &.active {
+		outline: 0;
+		background-image: none;
+	}
+
+	&.disabled, &[disabled], fieldset[disabled] & {
+		cursor: not-allowed;
+	}
+
+	a& {
+		&.disabled, fieldset[disabled] & {
+			pointer-events: none;
+		}
+	}
+}

@@ -1,0 +1,239 @@
+/* 
+Mixins and discrete block definitions.
+*/
+
+
+
+//////// General
+
+//// Clear Fix
+/// from Bootstrap, in turn from here: http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+//// Root
+// Defines the style applied to the root elements.
+
+%root {
+	text-align: left;
+	color: $text-color-bright;
+	font-size: $text-size-base;
+	font-family: $font-family-copy;
+	// background: black;
+}
+
+//// Links
+
+// This is intended for use with things that should look like links but aren't.
+// The intent is that they're still interactive.
+%linkish {
+	color: $text-color-link;
+	text-decoration: none;
+}
+
+%link {
+	color: $text-color-link;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: $text-color-link;
+	}
+}
+
+// This completely resets link styles so that further styling can take place.
+%unlink {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover, &:visited {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+// This completely resets link styles like %unlink, but keeps the "underline on hover" behavior.
+%unlink-hoverable {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover, &:visited {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+//// List
+
+%unlist {
+	margin: 0;
+	padding: 0;
+
+	> li {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+//// Sizing Blocks
+
+// This really needs a better name.
+%site-width-block {
+	margin-left: auto;
+	margin-right: auto;
+	width: $site-width-max;
+
+	@media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+		margin-left: $site-spacing-sides;
+		margin-right: $site-spacing-sides;
+		width: auto;
+	}
+}
+
+%site-width-container {
+	background: $background-general-rgba;
+	padding-top: $spacing-general;
+	padding-bottom: $spacing-general;
+}
+
+// This is necessary because tables on their own will take up minimal width.
+%site-width-container-with-table {
+	// table {
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	// 	width: $site-width-max;
+	// }
+
+	// @media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+	// 	padding-left: $site-spacing-sides;
+	// 	padding-right: $site-spacing-sides;
+
+	// 	table {
+	// 		width: 100%;
+	// 	}
+	// }
+
+	// Note: This assumes `border-spacing: $spacing-general`!
+	> table {
+		margin-left: auto;
+		margin-right: auto;
+		width: ($site-width-max + 2 * $spacing-general);
+	}
+
+	@media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+		padding-left: ($site-spacing-sides - $spacing-general);
+		padding-right: ($site-spacing-sides - $spacing-general);
+
+		> table {
+			width: 100%;
+		}
+	}
+}
+
+
+
+//////// Logo
+
+%logo {
+	font-size: $text-size-logo;
+	font-family: $font-family-title;
+	font-weight: 300;
+	color: $text-color-bright;
+}
+
+
+
+//////// Top Nav
+
+%nav-top {
+	text-align: center;
+	background: $background-general-rgba;
+	padding: $spacing-general 0;
+}
+
+%message-bar {
+	text-align: center;
+	background: $background-general-highlight-rgba;
+	color: $text-color-attention;
+	padding: $spacing-general 0;
+}
+
+
+
+//////// Breadcrumb
+
+%breadcrumb-box {
+	// General text
+	color: $text-color-middle;
+	padding: ($spacing-general / 2) 0;
+	margin-top: $spacing-wide;
+	margin-bottom: $spacing-wide;
+
+	// Bottom stroke
+	border-bottom: 1px solid $border-column-edge-rgba;
+}
+
+%breadcrumb-text-general {
+	color: $text-color-middle;
+}
+
+%breadcrumb-text-current {
+	color: $text-color-bright;
+}
+
+
+
+//////// Other Headers
+
+%section-header {
+	font-size: $text-size-header-primary;
+	font-family: $font-family-title;
+	font-weight: normal;
+
+	// margin: $spacing-wide auto ($spacing-general / 2);
+	margin-top: $spacing-wide;
+	margin-bottom: ($spacing-general / 2);
+}
+
+
+
+//////// Button
+
+%button {
+	// From %unlink.
+	&, &:hover, &:visited {
+		color: $text-color-middle;
+		text-decoration: none;
+	}
+
+	// color: $text-color-middle;
+	display: inline-block;
+
+	// line-height: 1.6;
+	// padding: 0.2em 0.7em;
+	padding: 0 0.7em;
+	// This may make things look funny later.
+	line-height: 1.6;
+
+	background: $background-general-highlight-rgba;
+	border-radius: 5px;
+	border: 2px solid $border-column-separater-rgba;
+
+}

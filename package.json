@@ -1,0 +1,21 @@
+{
+  "name": "your-app",
+  "description": "Description",
+  "author": "Your Name",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "brunch build --production",
+    "start": "brunch watch --server"
+  },
+  "dependencies": {
+    "clean-css-brunch": ">= 1.0 < 1.9",
+    "css-brunch": ">= 1.0 < 1.9",
+    "javascript-brunch": ">= 1.0 < 1.9",
+    "sass-brunch": "^1.9.2",
+    "uglify-js-brunch": ">= 1.0 < 1.9"
+  }
+}

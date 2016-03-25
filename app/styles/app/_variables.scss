@@ -1,0 +1,100 @@
+// Base Definitions
+
+//////// Backgrounds
+
+// The general background color of content areas.
+// Note: Other background colors are layered atop this unless specified otherwise.
+$background-general-color: #1F252B;
+$background-general-opacity: 0.75;
+$background-general-rgba: rgba( $background-general-color, $background-general-opacity );
+
+$background-highlight-color: #A6CDD1;
+$background-highlight-opacity: 0.1;
+$background-highlight-rgba: rgba( $background-highlight-color, $background-highlight-opacity );
+
+$background-highlight-2-color: #FFDE3B;
+$background-highlight-2-opacity: 0.1;
+$background-highlight-2-rgba: rgba( $background-highlight-2-color, $background-highlight-2-opacity );
+
+$background-stripes-image: url("./images/stripes-010.png");
+
+// This should be the color that results from layering $background-highlight-rgba atop $background-general-rgba.
+$background-general-highlight-color: rgb( 48, 58, 64 );
+$background-general-highlight-opacity: 0.78;
+$background-general-highlight-rgba: rgba( $background-general-highlight-color, $background-general-highlight-opacity );
+
+
+//////// Fonts
+
+//// Font Colors
+
+// Primary headers, (including logo) Body Copy, etc.
+$text-color-bright: #E6F1F2;
+
+// This is also used for text on buttons.
+$text-color-middle: #A6CDD1;
+
+$text-color-middle-bright: mix($text-color-bright, $text-color-middle, 76%);
+
+// This gets used in table column headers and forum-item details.
+$text-color-middle-dimmed: #97b4bd;
+
+$text-color-dim: #6B9599;
+
+$text-color-link: #EA8326;
+
+$text-color-danger: #b34a35;
+
+$text-color-attention: #ffdd99;
+
+//// Font Sizes
+
+// Evaluate: fixed base size versus just letting it start naturally.
+$text-size-base: 14px;
+
+$text-size-copy: 1em;
+$text-size-note: #{(12/14)}em;
+$text-size-table-header: #{(9/14)}em;
+$text-size-detail: #{(10/14)}em;
+
+$text-size-logo: #{(7/2)}em;
+$text-size-header-primary: 2em;
+$text-size-header-secondary: 1.5em;
+
+//// Font Families
+
+$font-family-copy: "Exo 2", sans-serif;
+$font-family-title: "Advent Pro", sans-serif;
+
+
+
+//////// Strokes
+
+$border-column-edge-color: #a6cdd1;
+$border-column-edge-opacity: 0.75;
+$border-column-edge-rgba: rgba( $border-column-edge-color, $border-column-edge-opacity );
+
+$border-column-separater-color: #a6cdd1;
+$border-column-separater-opacity: 0.5;
+$border-column-separater-rgba: rgba( $border-column-separater-color, $border-column-separater-opacity );
+
+
+
+//////// Dimensions
+
+$site-width-max: 1200px;
+$site-spacing-sides: 20px;
+
+
+
+//////// Spacing Values for Margins and Paddings
+
+$spacing-general: 10px;
+$spacing-wide: 30px;
+
+
+
+//////// LayoutTable stuff
+
+$layouttable-intercell-spacing: $spacing-general + 1;
+$layouttable-contentcell-padding: $spacing-general / 2;

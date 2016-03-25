@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Theme Demo - SpaceSkin</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="stylesheet" href="fonts.css"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Advent+Pro:400,700,300">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="font-awesome.css">
+	<link rel="stylesheet" href="app.css">
+
+	<!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="./images/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="./images/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="./images/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./images/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="./images/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="./images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="./images/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="./images/favicon/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
+</head>
+<body>
+	<!-- Note: This was being done at the time of a CSS refactor, hence why the markup presented here is different. -->
+
+	<h1><a href="/"><span class="logo-image"></span>SpaceSkin</a></h1>
+
+	<div id="user-control-panel">
+		<div class="avatar avatar-mini avatar-none">[Include demo avatar?]</div>
+		<div class="welcome">Welcome <a href="#member-link">Commander</a></div>
+		<div><a href="#message-center">0 Messages</a></div>
+		<!-- TODO: Is there a way to make this tabbable? -->
+		<div>
+			<div class="dropdown">
+				<span class="dropdown-label">My Controls</span>
+				<ul class="dropdown-menu">
+					<li><a href="#user-control-panel">My Controls</a></li>
+					<li><a href="#chat">Chat</a></li>
+					<li><a href="#member-list">Members</a></li>
+					<li><a href="#tos">Rules</a></li>
+				</ul>
+			</div>
+		</div>
+		<div><a href="#logout">Logout</a></div>
+	</div>
+
+	<div id="message-bar">An important message is being displayed.</div>
+
+	<ul id="breadcrumb">
+		<li><a href="/">Board Index</a></li>
+		<li><a href="#page">Board</a></li>
+		<li><a href="#page">Thread</a></li>
+	</ul>
+
+	<div id="content">
+		<section class="forum forum-index">
+			<h2><a href="#forum">Forum 1</a></h2>
+
+			<div class="forum-contents">
+				<table>
+					<tbody>
+						
+						<tr class="forum-header">
+							<th colspan="2" class="title">Board Name</th>
+							<th class="last-post">Last Post</th>
+							<th class="thread-count">Threads</th>
+							<th class="post-count">Posts</th>
+						</tr>
+						<tr class="forum-item new-posts">
+							<td class="status"><abbr title="New Posts"><img src="images/board-new-posts.png" alt="New Posts"></abbr></td>
+							<td class="title"><a href="#board">General Discussion</a></td>
+							<td class="last-post">Last Post by <a href="#member">Real Dragons</a> Jan 10, 2016<br>
+								In <a href="#thread-post">There should be more dragons</a></td>
+							<td class="thread-count">1</td>
+							<td class="post-count">12</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Setting and Lore</a>
+								<div class="subboards">Subboards: <a href="#subboard">Solar Systems</a>, <a href="#subboard">Influencial Entities</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Real Dragons</a> Jan 9, 2016<br>
+								In <a href="#thread-post">The Space Dragon Empire in Space</a></td>
+							<td class="thread-count">25</td>
+							<td class="post-count">102</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Character and Story Arcs</a>
+								<div class="description">Information specific to certain characters and story arcs as opposed to general history or other setting information</div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Imitation Dragons</a> Dec 21, 2015<br>
+								In <a href="#thread-post">The Misadventures of Kilroy the Undercover Human</a></td>
+							<td class="thread-count">7</td>
+							<td class="post-count">25</td>
+						</tr>
+						<tr class="forum-item new-posts">
+							<td class="status"><abbr title="New Posts"><img src="images/board-new-posts.png" alt="New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Omake</a>
+								<div class="description">Silly non-canon, OOC asides</div>
+								<div class="subboards">Subboards: <a href="#subboard">Crossovers</a>, <a href="#subboard">Hey There, Space Man</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Bees</a> Jan 13, 2016<br>
+								In <a href="#thread-post">The Heinous Salacity of Lord Oberratethex XXVI</a></td>
+							<td class="thread-count">1</td>
+							<td class="post-count">12</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<section class="forum forum-index">
+			<h2><a href="#forum">Forum 2</a></h2>
+
+			<div class="forum-contents">
+				<table>
+					<tbody>
+						
+						<tr class="forum-header">
+							<th colspan="2" class="title">Board Name</th>
+							<th class="last-post">Last Post</th>
+							<th class="thread-count">Threads</th>
+							<th class="post-count">Posts</th>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title"><a href="#board">Plain Title</a></td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item new-posts">
+							<td class="status"><abbr title="New Posts"><img src="images/board-new-posts.png" alt="New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Description</a>
+								<div class="description">A summary of what this board is for</div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Subboards</a>
+								<div class="subboards">Subboards: <a href="#subboard">Subboard 1</a>, <a href="#subboard">Subboard 2</a>, <a href="#subboard">Subboard 3</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						<tr class="forum-item">
+							<td class="status"><abbr title="No New Posts"><img src="images/board.png" alt="No New Posts"></abbr></td>
+							<td class="title">
+								<a href="#board">Title with Description and Subboards</a>
+								<div class="description">A summary of what this board is for</div>
+								<div class="subboards">Subboards: <a href="#subboard">Subboard 1</a>, <a href="#subboard">Subboard 2</a>, <a href="#subboard">Subboard 3</a></div>
+							</td>
+							<td class="last-post">Last Post by <a href="#member">Member</a> Jan 23, 2016<br>
+								In <a href="#thread-post">Thread Title</a></td>
+							<td class="thread-count">12</td>
+							<td class="post-count">34</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+	<div id="forum-stats">
+		<div class="user-stats">
+			<div class="most-users">
+				Most users online: 10 on Dec 13, 2015
+			</div>
+			<div class="users-online">
+				<a href="#users-online">4 Online Users</a>: <a href="#member">Commander</a>, <a href="#member">Real Dragons</a>, <a href="#member">Imitation Dragons</a>, <a href="#member">Bees</a>
+			</div>
+		</div>
+		<hr>
+		<div class="post-stats">
+			There are 287 posts in 82 topics by 10 members<br>
+			Last Post: <a href="#thread-post">The Heinous Salacity of Lord Oberratethex XXVI</a> by <a href="#member">Bees</a> at 2016-01-13 11:35<br>
+			Newest Member: <a href="#member">Yet More Bees</a>
+		</div>
+	</div>
+	<div id="footer">
+		<a href="#tos">Rules and Terms of Service</a> &middot; <a href="#privacy-policy">Privacy Policy</a><br>
+		Powered by <a href="#forum-creator">Real Dragons</a>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
