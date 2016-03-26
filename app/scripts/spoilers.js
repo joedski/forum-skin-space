@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $( function() {
 	$( '.spoiler' ).each( function( i, spoilerEl ) {
 		hideSpoiler( $( spoilerEl ), true );

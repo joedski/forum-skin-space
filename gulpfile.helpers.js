@@ -1,5 +1,6 @@
 'use strict';
 
+const gutil = require( 'gulp-util' );
 const uglify = require( 'gulp-uglify' );
 const browserify = require( 'browserify' );
 const babelify = require( 'babelify' );
@@ -14,6 +15,7 @@ exports.getBowerPackageIds = getBowerPackageIds;
 exports.getNPMPackageIds = getNPMPackageIds;
 exports.getConfiguredUglify = getConfiguredUglify;
 exports.getBundler = getBundler;
+exports.bundle = bundle;
 
 function getBowerPackageIds() {
 	let bowerManifest = {};
@@ -73,7 +75,7 @@ function getBundler( options ) {
 	}, options || {} );
 
 	let browserifyOptions = options.browserifyOptions,
-		babelifyOptions = options.babelifyOptions,
+		babelifyOptions = options.babelifyOptions;
 		// es3ifyOptions = options.es3ifyOptions;
 
 	return browserify( browserifyOptions )
@@ -85,7 +87,7 @@ function getBundler( options ) {
 function bundle( bundler, sourceName ) {
 	let bufferedStream = bundler.bundle()
 		// Browserify Errors.
-		.on( 'error', err => {
+		.on( 'error', function( err ) {
 			gutil.log( err.message );
 			this.emit( 'end' );
 		})
