@@ -14,10 +14,8 @@ function wrap( contents, context ) {
 
 	<title>${ context.pageTitle }</title>
 
-	<!-- <link rel="stylesheet" href="fonts.css"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Advent+Pro:400,700,300">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="font-awesome.css">
 	<link rel="stylesheet" href="theme.css">
 
 	<!-- ****** faviconit.com favicons ****** -->

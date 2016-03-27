@@ -1,4 +1,4 @@
-import { element } from 'deku';
+import element from '../templater/element';
 import ContentBlock from './content-block';
 
 export default {

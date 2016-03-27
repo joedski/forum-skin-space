@@ -1,4 +1,4 @@
-import { element } from 'deku';
+import element from '../templater/element';
 import classNames from 'classnames';
 
 let duid = 0;

@@ -1,4 +1,5 @@
-import { string, element } from 'deku';
+import { string } from 'deku';
+import element from './templater/element';
 import templater from './templater';
 import classNames from 'classnames';
 
@@ -10,6 +11,7 @@ import MessageBar from './components/message-bar';
 import ContentBlock from './components/content-block';
 import ContentHeader from './components/content-header';
 import ContentTable from './components/content-table';
+import ForumItemStatus from './components/forum-item-status';
 
 let page = ( state ) => {
 	return (
@@ -43,15 +45,18 @@ let page = ( state ) => {
 							return (
 								<tr class={ classNames( rowClass ) }>
 									<td class={ classNames( columns[ 0 ].class, row[ 0 ].class, 'with-status' ) }>
-										{/*<ForumItemStatus/>*/}
-										<div className="status"></div>
-										<div class="title-content">
-											<a href="#forum">{ row[ 0 ].title }</a>
+										<ForumItemStatus/>
+										<div class="item-title">
+											<span className="title-content">
+												<a href="#forum">{ row[ 0 ].title }</a>
+											</span>
 											{ row[ 0 ].description
-												? <div class="description">{row[ 0 ].description}</div>
+												? <div class="item-detail description">{row[ 0 ].description}</div>
 												: null }
 											{ row[ 0 ].subboards
-												? <div class="subboards">Subboards: {row[ 0 ].subboards.map( sb => (<a href="#subboard">{sb}</a>) )}</div>
+												? <div class="item-detail subboards">Subboards: {
+													row[ 0 ].subboards.map( ( sb, i ) => ([ (i ? ', ' : null), <a href="#subboard">{sb}</a>]) )
+												}</div>
 												: null }
 										</div>
 									</td>

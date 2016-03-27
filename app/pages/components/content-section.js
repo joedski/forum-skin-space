@@ -1,4 +1,4 @@
-import { element } from 'deku';
+import element from '../templater/element';
 
 export default {
 	render({ props, children }) {

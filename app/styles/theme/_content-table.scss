@@ -1,0 +1,84 @@
+
+//////// Utilities
+
+@mixin table-cells() {
+	> tbody, > thead {
+		> tr {
+			> td, > th {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin table-data-cells() {
+	> tbody, > thead {
+		> tr {
+			> td {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin table-header-cells() {
+	> tbody, > thead {
+		> tr {
+			> th {
+				@content;
+			}
+		}
+	}
+}
+
+
+
+//////// Initial resets.
+
+.content-table {
+	width: 100%;
+
+	@include table-cells() {
+		position: relative;
+	}
+}
+
+.content-table {
+	z-index: 0;
+
+	@include table-cells() {
+		z-index: 2;
+
+		&:before, &:after {
+			z-index: -1;
+		}
+	}
+}
+
+
+
+//////// Basic Layout
+
+//// Container
+
+.content-table-container {
+	// Top is unbordered, so we must compensate for that here.
+	margin-top: (- ($content-table-intercell-spacing + $content-table-contentcell-padding));
+	margin-left: (- $content-table-intercell-spacing);
+	margin-right: (- $content-table-intercell-spacing);
+	margin-bottom: (- $content-table-intercell-spacing);
+}
+
+//// Cell Padding
+
+.content-table {
+	@include table-header-cells() {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@include table-data-cells() {
+		padding-top: $content-table-contentcell-padding;
+		padding-bottom: $content-table-contentcell-padding;
+	}
+}

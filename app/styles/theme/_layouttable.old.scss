@@ -95,6 +95,7 @@ Note: Only use <tbody>.  <thead> is not recommended for layouttable.
 					@extend %unlink-hoverable;
 				}
 
+				// This is now item-detail, and item-detail only!
 				.item-detail, .description, .subboards, .thread-starter {
 					color: $text-color-middle-dimmed;
 					font-size: $text-size-detail;
