@@ -1,0 +1,441 @@
+
+@import "../font-awesome/variables";
+@import "variables";
+@import "mixins";
+
+
+
+//////// Global Definitions
+
+body, html {
+	@extend %root;
+}
+
+html {
+	background: url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center black;
+	background-size: 1000px auto;
+
+	background:
+		url(./images/Planet-with-Sun-860.png) no-repeat top center,
+		black url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center;
+	background-size:
+		860px auto,
+		1000px auto;
+
+}
+
+a {
+	@extend %link;
+}
+
+hr {
+	// http://www.sovavsiti.cz/css/hr.html
+	color: $border-column-separater-rgba;
+	background: $border-column-separater-rgba;
+	border: 0 solid transparent;
+	height: 1px;
+}
+
+input[type=submit], select {
+	@extend %button;
+}
+
+
+
+
+//////// Block Definitions
+
+//// Top Header
+
+h1 {
+	@extend %logo;
+
+	text-align: center;
+	margin-top: (45px - 15px);
+	margin-bottom: 100px;
+
+	$logo-image-width: (94px/2);
+	$logo-image-height: (166px/2);
+
+	.logo-image {
+		position: relative;
+		display: inline-block;
+		width: $logo-image-width;
+		vertical-align: middle;
+		padding-right: 0.35em; // arbitrary
+	}
+
+	.logo-image:before {
+		content: '';
+		display: block;
+		position: absolute;
+
+		top: (- $logo-image-height/2 - 5px);
+		// left: (- 0.35em);
+		height: $logo-image-height;
+		width: $logo-image-width;
+		background: url(./images/logo-mark-@2x.png) center no-repeat;
+		background-size: $logo-image-width $logo-image-height;
+	}
+
+	a {
+		@extend %unlink;
+
+	}
+}
+
+//// User Control Panel
+
+#user-control-panel {
+	@extend %nav-top;
+
+	> * {
+		display: inline-block;
+
+		&:not(.avatar) + *:not(.avatar):before {
+			// Note: Space after dot is because of HTML whitespace handling around inline elements.
+			content: '• ';
+			padding: 0 $spacing-general;
+		}
+	}
+
+	.avatar {
+		&.avatar-none {
+			display: none;
+		}
+	}
+}
+
+// Drop Down Menu
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-label {
+	@extend %linkish;
+
+	&:after {
+		// TODO: Replace with Font Awesome glyph.
+		content: 'v';
+		margin-left: $spacing-general;
+	}
+}
+
+.dropdown-menu {
+	@extend %unlist;
+
+	display: none;
+
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: auto;
+	white-space: nowrap;
+	text-align: left;
+
+	// margin: (- $spacing-general) (- $spacing-general) 0 0;
+	margin: (- $spacing-general);
+	padding: ($spacing-general / 2);
+	background: $background-general-highlight-rgba;
+
+	a {
+		display: block;
+		padding: ($spacing-general / 2);
+	}
+
+	.dropdown:hover > &, .dropdown:active > &, .dropdown:focus > & {
+		display: block;
+	}
+}
+
+//// Message Box
+
+.message-bar {
+	@extend %message-bar;
+
+	& + .message-bar {
+		margin-top: $spacing-wide;
+	}
+}
+
+//// Bread Crumb
+
+#breadcrumb {
+	@extend %unlist;
+	@extend %breadcrumb-box;
+	@extend %site-width-block;
+
+	> li {
+		display: inline-block;
+	}
+
+	> li + li:before {
+		content: '»';
+		margin: 0 ($spacing-general / 1);
+	}
+
+	> li {
+		a {
+			&, &:hover, &:active {
+				@extend %breadcrumb-text-general;
+			}
+
+			display: inline-block;
+		}
+
+		&:last-child a {
+			&, &:hover, &:active {
+				@extend %breadcrumb-text-current;
+			}
+		}
+	}
+}
+
+
+
+//////// Content
+
+#content {}
+
+//// Forum Boards, Threads
+@import "section";
+@import "layouttable";
+@import "button";
+
+//// Forum: Board Controls
+.board-controls {
+	@extend %site-width-block;
+	@extend %clear-fix;
+	line-height: 1.6;
+	margin-top: $spacing-general;
+	margin-bottom: $spacing-general;
+}
+
+.board-pagination {
+	float: left;
+	// padding: 0.2em 0;
+}
+
+.board-thread-controls {
+	text-align: right;
+
+	a {
+		// @extend %button;
+
+		& + a {
+			margin-left: 1em;
+		}
+
+		//// Icons
+		&.new-thread:before {
+			display: inline-block;
+			font-family: FontAwesome;
+			content: $fa-var-eye;
+			margin-right: 0.5em;
+		}
+
+		&.new-poll:before {
+			display: inline-block;
+			font-family: FontAwesome;
+			content: $fa-var-bar-chart;
+			margin-right: 0.5em;
+		}
+	}
+}
+
+//// Forum Stats
+#forum-stats {
+	@extend %site-width-container;
+
+	color: $text-color-middle;
+
+	> * {
+		@extend %site-width-block;
+		position: relative;
+
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+	}
+
+	.most-users {
+		float: right;
+		width: 50%;
+		text-align: right;
+	}
+
+	.users-online {
+		float: left;
+		width: 50%;
+		text-align: left;
+	}
+
+	.post-stats {
+		font-size: $text-size-note;
+	}
+}
+
+#footer {
+	@extend %site-width-block;
+
+	color: $text-color-middle-dimmed;
+	text-align: center;
+	font-size: $text-size-table-header;
+	font-family: $font-family-title;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	margin-top: $spacing-general;
+	margin-bottom: $spacing-wide;
+}
+
+//// Message Center
+/// A lot of this is duplicated from "Fancy Table Styling" above.
+/// At some point this should all be refactored to make nesting tables easier.
+// Base Layout
+.message-center {
+	margin-bottom: $spacing-wide;
+
+	h2 {
+		@extend %site-width-block;
+		@extend %section-header;
+
+		a {
+			@extend %unlink;
+		}
+	}
+
+	table {
+		z-index: 0;
+	}
+
+	td, th {
+		vertical-align: middle;
+		position: relative;
+
+		z-index: 2;
+
+		&:before, &:after {
+			z-index: -1;
+		}
+	}
+}
+
+.message-center-contents {
+	padding-bottom: $spacing-general;
+	background: $background-general-rgba;
+
+	@extend %site-width-container-with-table;
+}
+
+// Base Layout: Subtable
+.message-list-container {
+	// margin-top: (- $spacing-general);
+	// margin-left: (- $spacing-general);
+	// margin-right: (- $spacing-general);
+
+	.message-center-content-controls {
+		margin-left: $spacing-general;
+		margin-right: $spacing-general;
+	}
+}
+
+.message-list {
+	width: 100%;
+}
+
+// Cell Spacing
+.message-center-contents > table, .message-list-container > form > table {
+	border-collapse: separate;
+	border-spacing: $spacing-general + 1;
+}
+
+// Column sizing
+.message-center {
+	td, th {
+		&.message-center-box-list {
+			width: 25%;
+		}
+
+		&.sender, &.time {
+			width: 20%;
+		}
+	}
+}
+
+// Row Sizing
+.message-center {
+	th {
+		height: 1em;
+		padding-top: 0;
+		padding-bottom: 0;
+
+	}
+}
+
+// Vertical Alignment
+.message-center {
+	td.message-center-box-list {
+		vertical-align: top;
+	}
+}
+
+.message-center-box-list {
+	ul {
+		@extend %unlist;
+	}
+}
+
+// Cell Padding
+.message-list-item {
+	td, th {
+		padding-top: ($spacing-general / 2);
+		padding-bottom: ($spacing-general / 2);
+	}
+}
+
+// Cell Backgrounds...
+
+// Fancy Dividers
+.message-center {
+	td, th {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin-bottom: (- $spacing-general / 2 - 1px);
+			border-bottom: 1px solid $border-column-separater-rgba;
+		}
+	}
+
+	th {
+		&:after {
+			border-bottom: 2px solid $border-column-edge-rgba;
+		}
+	}
+
+	.message-center-controls {
+		th, td {
+			&:after {
+				content: none;
+				display: none;
+			}
+		}
+	}
+
+	// .message-list-item:last-child {
+	// 	td:after {
+	// 		border-bottom: 2px solid $border-column-edge-rgba;
+	// 	}
+
+	// }
+}

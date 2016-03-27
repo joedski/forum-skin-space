@@ -1,0 +1,36 @@
+body {
+	background: transparent;
+}
+
+body, html {
+	text-align: left;
+	color: $text-color-bright;
+	font-size: $text-size-base;
+	font-family: $font-family-copy;
+	// background: black;
+}
+
+html {
+	background: url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center black;
+	background-size: 1000px auto;
+
+	background:
+		url(./images/Planet-with-Sun-860.png) no-repeat top center,
+		black url(./images/Star-field-v3-1-Base-Tile-topgrad-2k.jpg) repeat-x top center;
+	background-size:
+		860px auto,
+		1000px auto;
+}
+
+// a {
+// 	color: $text-color-link;
+// 	text-decoration: none;
+
+// 	&:hover {
+// 		text-decoration: underline;
+// 	}
+
+// 	&:visited {
+// 		color: $text-color-link;
+// 	}
+// }

@@ -1,0 +1,46 @@
+
+h1 {
+	font-size: $text-size-logo;
+	font-family: $font-family-title;
+	font-weight: 300;
+	color: $text-color-bright;
+	text-align: center;
+
+	margin-top: (45px - 15px);
+	margin-bottom: 100px;
+
+	$logo-image-width: (94px/2);
+	$logo-image-height: (166px/2);
+
+	.logo-image {
+		position: relative;
+		display: inline-block;
+		width: $logo-image-width;
+		vertical-align: middle;
+		margin-right: 0.35em; // arbitrary
+	}
+
+	.logo-image:before {
+		content: '';
+		display: block;
+		position: absolute;
+
+		top: (- $logo-image-height/2 - 5px);
+		// left: (- 0.35em);
+		height: $logo-image-height;
+		width: $logo-image-width;
+		background: url(./images/logo-mark-@2x.png) center no-repeat;
+		background-size: $logo-image-width $logo-image-height;
+	}
+
+	a {
+		//////// @extend %unlink;
+		color: inherit;
+		text-decoration: none;
+
+		&:hover, &:visited {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}

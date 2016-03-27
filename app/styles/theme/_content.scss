@@ -1,0 +1,23 @@
+
+.content-section {
+	margin-top: $spacing-wide;
+	margin-bottom: $spacing-wide;
+}
+
+.content-block {
+	background: $background-general-rgba;
+	padding-top: $spacing-general;
+	padding-bottom: $spacing-general;
+	// text-align: center;
+
+	&.content-block-flush {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	&.info {
+		background: $background-general-highlight-rgba;
+		color: $text-color-attention;
+		// padding: $spacing-general 0;
+	}
+}

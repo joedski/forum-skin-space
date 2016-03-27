@@ -5,6 +5,7 @@ const gulp = require( 'gulp' );
 const gutil = require( 'gulp-util' );
 const sourcemaps = require( 'gulp-sourcemaps' );
 const sass = require( 'gulp-sass' );
+const concat = require( 'gulp-concat' );
 
 const source = require( 'vinyl-source-stream' );
 const buffer = require( 'vinyl-buffer' );
@@ -20,12 +21,23 @@ const childProcess = require( 'child_process' );
 const through = require( 'through2' );
 const rimraf = require( 'rimraf' );
 
+const nodeResolve = require( 'resolve' );
+
 gulp.task( 'default', [
 	'build-page-scripts',
+	'build-page-scripts-deps',
 	'build-page-styles',
 	'build-vendor-styles',
 	'build-demo-pages',
+	'copy-assets',
 ]);
+
+gulp.task( 'watch', () => {
+	gulp.watch( 'app/pages/**/*', [ 'build-demo-pages' ]);
+	gulp.watch( 'app/scripts/**/*', [ 'build-page-scripts' ]);
+	gulp.watch( 'app/styles/**/*', [ 'build-page-styles' ]);
+	gulp.watch( 'app/assets/**/*', [ 'copy-assets' ]);
+})
 
 gulp.task( 'clean', ( done ) => {
 	async.map([
@@ -36,7 +48,13 @@ gulp.task( 'clean', ( done ) => {
 
 gulp.task( 'build-page-styles', () => {
 	let stream = gulp.src([ 'app/styles/theme/*.{scss,css}', '!_*' ])
-		.pipe( gulpif( /\.scss$/, sass() ) )
+		.pipe( sourcemaps.init() )
+		.pipe( gulpif( /\.scss$/, sass({
+			includePaths: [
+				'node_modules/bootstrap-sass/assets/stylesheets',
+			],
+		}) ) )
+		.pipe( sourcemaps.write( './' ) )
 		.pipe( gulp.dest( 'public' ) )
 		;
 
@@ -52,14 +70,14 @@ gulp.task( 'build-font-awesome-styles', () => {
 		;
 
 	return stream;
-})
+});
 
 gulp.task( 'build-page-scripts', () => {
 	let bundler = helpers.getBundler();
 
 	bundler.add( './app/scripts/index.js' );
 
-	let stream = helpers.bundle( bundler, 'forum.js' );
+	let stream = helpers.bundle( bundler, 'theme.js' );
 
 	stream
 		.pipe( sourcemaps.init({
@@ -71,6 +89,16 @@ gulp.task( 'build-page-scripts', () => {
 
 	return stream;
 });
+
+gulp.task( 'build-page-scripts-deps', () => {
+	let srcIds = [ 'jquery', 'bootstrap-sass' ];
+	let srcs = srcIds.map( s => nodeResolve.sync( s ) );
+
+	gulp.src( srcs )
+		.pipe( concat( 'vendor.js' ) )
+		.pipe( gulp.dest( 'public' ) )
+		;
+})
 
 gulp.task( 'build-demo-pages', [ 'babel-demo-pages' ], () => {
 	let stream = gulp.src( 'app/pages.node/*.js', {
@@ -102,3 +130,11 @@ gulp.task( 'babel-demo-pages', () => {
 
 	return stream;
 });
+
+gulp.task( 'copy-assets', () => {
+	let stream = gulp.src([ 'app/assets/**/*', '!*.html' ])
+		.pipe( gulp.dest( 'public' ) )
+		;
+
+	return stream;
+})

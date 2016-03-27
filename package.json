@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
+    "classnames": "^2.2.3",
     "clean-css-brunch": ">= 1.0 < 1.9",
     "css-brunch": ">= 1.0 < 1.9",
     "deku": "2.0.0-rc16",
@@ -34,6 +35,7 @@
     "es3ify": "^0.2.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.0",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",

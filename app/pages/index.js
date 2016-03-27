@@ -1,15 +1,47 @@
 import { string, element } from 'deku';
 import templater from './templater';
 
-// console.log( 'Yay!' );
-// process.stdout.write( `Yay!` );
-
-// let node = <div className="test">Hello!</div>;
+import PageHeader from './components/page-header';
+import ContentSection from './components/content-section';
+import UserControlPanel from './components/user-control-panel';
+import Breadcrumb from './components/breadcrumb';
+import MessageBar from './components/message-bar';
+import ContentBlock from './components/content-block';
+import ContentHeader from './components/content-header';
 
 let page = ( state ) => {
 	return (
-		<div className="test">Hello { state.name }!</div>
+		<div id="container">
+			<PageHeader title={ state.forumTitle }/>
+			<ContentSection>
+				<UserControlPanel user={{
+					name: "Commander",
+					messageCount: 0,
+				}}/>
+				<ContentBlock importance="info">
+					<MessageBar>An important message is being displayed.</MessageBar>
+				</ContentBlock>
+			</ContentSection>
+			<ContentSection>
+				<ContentBlock>
+					<Breadcrumb crumbs={[
+						{ title: "Forum Index", link: "#index" },
+					]}/>
+				</ContentBlock>
+			</ContentSection>
+
+			<ContentSection>
+				<ContentHeader>A Top-Level Forum Index or Subforum Index</ContentHeader>
+
+				<ContentBlock>
+				</ContentBlock>
+			</ContentSection>
+		</div>
 	);
 };
 
-templater.write( page({ name: "World" }, {}, { pageTitle: "Hello World!" }) );
+templater.write( page({
+	forumTitle: "Space Theme"
+}, {}, {
+	pageTitle: "Space Theme"
+}) );

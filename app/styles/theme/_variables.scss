@@ -98,3 +98,20 @@ $spacing-wide: 30px;
 
 $layouttable-intercell-spacing: $spacing-general + 1;
 $layouttable-contentcell-padding: $spacing-general / 2;
+
+
+
+//////// Bootstrap Overrides
+
+// $grid-gutter-width: 10px;
+
+$navbar-margin-bottom: 0;
+$navbar-border-radius: 0;
+$navbar-padding-horizontal: 15px;
+$navbar-padding-vertical: ($spacing-general);
+
+$navbar-height: (20px + $navbar-padding-vertical*2);
+
+// $nav-link-padding: 0;
+$nav-link-spacing-horizontal: 15px;
+$nav-link-padding: ($navbar-padding-vertical) $nav-link-spacing-horizontal;

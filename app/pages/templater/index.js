@@ -1,8 +1,6 @@
 'use strict';
 
 import { string, element } from 'deku';
-// import deku from 'deku';
-// import $ from 'jquery';
 
 import page from './page';
 
