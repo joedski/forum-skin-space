@@ -18,12 +18,12 @@ let page = ( state ) => {
 					name: "Commander",
 					messageCount: 0,
 				}}/>
-				<ContentBlock importance="info">
+				<ContentBlock style="info">
 					<MessageBar>An important message is being displayed.</MessageBar>
 				</ContentBlock>
 			</ContentSection>
 			<ContentSection>
-				<ContentBlock>
+				<ContentBlock style="clear">
 					<Breadcrumb crumbs={[
 						{ title: "Forum Index", link: "#index" },
 					]}/>

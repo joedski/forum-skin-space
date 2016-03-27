@@ -103,6 +103,10 @@ $layouttable-contentcell-padding: $spacing-general / 2;
 
 //////// Bootstrap Overrides
 
+$body-bg: transparent;
+$text-color: $text-color-bright;
+$link-color: $text-color-link;
+$link-hover-color: lighten($text-color-link, 20%);
 // $grid-gutter-width: 10px;
 
 $navbar-margin-bottom: 0;
@@ -115,3 +119,9 @@ $navbar-height: (20px + $navbar-padding-vertical*2);
 // $nav-link-padding: 0;
 $nav-link-spacing-horizontal: 15px;
 $nav-link-padding: ($navbar-padding-vertical) $nav-link-spacing-horizontal;
+$nav-link-hover-bg: $background-highlight-rgba;
+
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-bg: transparent;
+$breadcrumb-active-color: $text-color-bright;

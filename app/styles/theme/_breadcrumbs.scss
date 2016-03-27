@@ -1,61 +1,73 @@
-#breadcrumb {
-	//////// @extend %unlist;
-	margin: 0;
-	padding: 0;
+// #breadcrumb {
+// 	//////// @extend %unlist;
+// 	margin: 0;
+// 	padding: 0;
 
-	> li {
-		margin: 0;
-		padding: 0;
-		list-style-type: none;
-	}
+// 	> li {
+// 		margin: 0;
+// 		padding: 0;
+// 		list-style-type: none;
+// 	}
 
-	//////// @extend %breadcrumb-box;
-	// General text
+// 	//////// @extend %breadcrumb-box;
+// 	// General text
+// 	color: $text-color-middle;
+// 	// padding: ($spacing-general / 2) 0;
+// 	// margin-top: $spacing-wide;
+// 	// margin-bottom: $spacing-wide;
+
+// 	// Bottom stroke
+// 	border-bottom: 1px solid $border-column-edge-rgba;
+
+// 	//////// @extend %site-width-block;
+// 	// margin-left: auto;
+// 	// margin-right: auto;
+// 	// width: $site-width-max;
+
+// 	// @media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
+// 	// 	margin-left: $site-spacing-sides;
+// 	// 	margin-right: $site-spacing-sides;
+// 	// 	width: auto;
+// 	// }
+
+// 	//// rest
+
+// 	> li {
+// 		display: inline-block;
+// 	}
+
+// 	> li + li:before {
+// 		content: '»';
+// 		margin: 0 ($spacing-general / 1);
+// 	}
+
+// 	> li {
+// 		a {
+// 			&, &:hover, &:active {
+// 				@extend %breadcrumb-text-general;
+// 			}
+
+// 			display: inline-block;
+// 		}
+
+// 		&:last-child a {
+// 			&, &:hover, &:active {
+// 				@extend %breadcrumb-text-current;
+// 			}
+// 		}
+// 	}
+// }
+
+.breadcrumb {
 	color: $text-color-middle;
-	// padding: ($spacing-general / 2) 0;
-	// margin-top: $spacing-wide;
-	// margin-bottom: $spacing-wide;
-
-	// Bottom stroke
 	border-bottom: 1px solid $border-column-edge-rgba;
-
-	//////// @extend %site-width-block;
-	// margin-left: auto;
-	// margin-right: auto;
-	// width: $site-width-max;
-
-	// @media screen and (max-width: ($site-width-max + 2 * $site-spacing-sides)) {
-	// 	margin-left: $site-spacing-sides;
-	// 	margin-right: $site-spacing-sides;
-	// 	width: auto;
-	// }
-
-	//// rest
+	border-radius: 0;
+	padding-bottom: 5px;
+	margin: 0;
 
 	> li {
-		display: inline-block;
-	}
-
-	> li + li:before {
-		content: '»';
-		margin: 0 ($spacing-general / 1);
-	}
-
-	> li {
-		a {
-			&, &:hover, &:active {
-				@extend %breadcrumb-text-general;
-			}
-
-			display: inline-block;
-		}
-
-		&:last-child a {
-			&, &:hover, &:active {
-				@extend %breadcrumb-text-current;
-			}
+		+ li:before {
+			color: $text-color-middle;
 		}
 	}
 }
-
-

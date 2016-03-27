@@ -5,8 +5,8 @@ export default {
 		let activeCrumb = props.crumbs[ props.crumbs.length - 1 ];
 		let crumbs = props.crumbs.map( c => (
 			c == activeCrumb
-				? <li><a href={ c.link }>{ c.title }</a></li>
-				: <li class="active">{ c.title }</li>
+				? <li class="active">{ c.title }</li>
+				: <li><a href={ c.link }>{ c.title }</a></li>
 		));
 
 		return (

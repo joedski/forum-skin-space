@@ -3,10 +3,10 @@ import classNames from 'classnames';
 
 export default {
 	render({ children, props }) {
-		let importance = props.importance || null;
+		let style = props.style || null;
 
 		return (
-			<div class={ classNames( 'content-block', importance, {
+			<div class={ classNames( 'content-block', style, {
 				'content-block-flush': props.flush
 			})}>
 				<div class="container">

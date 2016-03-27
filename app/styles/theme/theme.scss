@@ -2,7 +2,9 @@
 
 // node_modules/bootstrap-sass/assets/stylesheets
 @import "bootstrap";
+@import "mixins";
 @import "base";
 @import "page-header";
 @import "content";
 @import "user-control-panel";
+@import "breadcrumbs";

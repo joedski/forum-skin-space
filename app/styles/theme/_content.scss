@@ -20,4 +20,27 @@
 		color: $text-color-attention;
 		// padding: $spacing-general 0;
 	}
+
+	&.clear {
+		background: transparent;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+
+	font-size: $text-size-header-primary;
+	font-family: $font-family-title;
+	font-weight: normal;
+
+	// margin: $spacing-wide auto ($spacing-general / 2);
+	// margin-top: $spacing-wide;
+	margin-bottom: ($spacing-general / 2);
+
+	a {
+		@include unlink;
+	}
 }
