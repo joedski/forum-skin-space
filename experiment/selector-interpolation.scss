@@ -1,0 +1,44 @@
+// @mixin foo( $bar ) {
+// 	@if $bar {
+// 		$barsel: "tr.#{$bar}";
+// 	}
+// 	@else {
+// 		$barsel: "tr";
+// 	}
+
+// 	> .foo {
+// 		> #{$barsel} {
+// 			text-align: center;
+// 		}
+// 	}
+// }
+
+@mixin table-cells( $row-class: '' ) {
+	@if $row-class {
+		> tbody, > thead {
+			> tr#{$row-class} {
+				> td, > th {
+					@content;
+				}
+			}
+		}
+	}
+	@else {
+		> tbody, > thead {
+			> tr {
+				> td, > th {
+					@content;
+				}
+			}
+		}
+	}
+}
+
+.foo {
+	@include table-cells() {
+		text-align: center;
+	};
+	@include table-cells( '.foo-bar' ) {
+		text-align: center;
+	};
+}

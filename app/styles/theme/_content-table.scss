@@ -1,32 +1,58 @@
 
 //////// Utilities
 
-@mixin table-cells() {
+@mixin table-rows( $row-class: '' ) {
 	> tbody, > thead {
-		> tr {
-			> td, > th {
-				@content;
-			}
+		> tr#{$row-class} {
+			@content;
 		}
 	}
 }
 
-@mixin table-data-cells() {
-	> tbody, > thead {
-		> tr {
-			> td {
-				@content;
-			}
+@mixin table-cells( $row-class: '' ) {
+	@include table-rows( $row-class ) {
+		> td, > th {
+			@content;
 		}
 	}
 }
 
-@mixin table-header-cells() {
-	> tbody, > thead {
-		> tr {
-			> th {
-				@content;
-			}
+@mixin table-data-cells( $row-class: '' ) {
+	@include table-rows( $row-class ) {
+		> td {
+			@content;
+		}
+	}
+}
+
+@mixin table-header-cells( $row-class: '' ) {
+	@include table-rows( $row-class ) {
+		> th {
+			@content;
+		}
+	}
+}
+
+@mixin table-row-or-cell-style( $row-or-cell-class ) {
+	@include table-cells( $row-or-cell-class ) {
+		@content;
+	}
+
+	@include table-cells() {
+		&#{$row-or-cell-class} {
+			@content;
+		}
+	}
+}
+
+@mixin table-row-or-data-cell-style( $row-or-cell-class ) {
+	@include table-rows( $row-or-cell-class ) {
+		@content;
+	}
+
+	@include table-data-cells() {
+		&#{$row-or-cell-class} {
+			@content;
 		}
 	}
 }
@@ -66,13 +92,26 @@
 	margin-top: (- ($content-table-intercell-spacing + $content-table-contentcell-padding));
 	margin-left: (- $content-table-intercell-spacing);
 	margin-right: (- $content-table-intercell-spacing);
-	margin-bottom: (- $content-table-intercell-spacing);
+	margin-bottom: (- $content-table-intercell-spacing/2);
+
+	.content-table-container {
+		margin-bottom: (- ($content-table-intercell-spacing + $content-table-contentcell-padding));
+	}
+}
+
+//// Cell Spacing
+
+.content-table {
+	border-collapse: separate;
+	border-spacing: $content-table-intercell-spacing;
 }
 
 //// Cell Padding
 
 .content-table {
 	@include table-header-cells() {
+		height: 1em;
+
 		padding-top: 0;
 		padding-bottom: 0;
 	}
@@ -80,5 +119,213 @@
 	@include table-data-cells() {
 		padding-top: $content-table-contentcell-padding;
 		padding-bottom: $content-table-contentcell-padding;
+	}
+}
+
+
+
+//////// General Styling
+
+//// Default Alignment
+
+.content-table {
+	text-align: left;
+	@include table-cells() {
+		vertical-align: middle;
+	}
+
+	@include table-cells( ".cell-top" ) {
+		vertical-align: top;
+	}
+
+	@include table-cells() {
+		&.cell-top {
+			vertical-align: top;
+		}
+	}
+}
+
+//// General Font Work
+
+.content-table {
+	@include table-data-cells() {
+		.title-content a {
+			@include unlink-hoverable();
+		}
+
+		.item-detail {
+			color: $text-color-middle-dimmed;
+			font-size: $text-size-detail;
+		}
+
+		//// Detail
+		&.last-post {
+			font-size: $text-size-note;
+		}
+	}
+}
+
+.content-table.forum-index {
+	@include table-data-cells() {
+		.title-content a {
+			font-size: $text-size-header-secondary;
+			font-family: $font-family-title;
+		}
+	}
+}
+
+//// Table Headers
+
+.content-table {
+	@include table-header-cells() {
+		font-size: $text-size-table-header;
+		font-weight: bold;
+		font-family: $font-family-title;
+		text-transform: uppercase;
+		color: $text-color-middle-dimmed;
+	}
+}
+
+//// Fancy Dividers
+
+@mixin thick-border() {
+	&:after {
+		border-bottom: 2px solid $border-column-edge-rgba;
+	}
+}
+
+@mixin thin-border() {
+	&:after {
+		border-bottom: 1px solid $border-column-separater-rgba;
+	}
+}
+
+@mixin no-border() {
+	&:after {
+		display: none;
+	}
+}
+
+.content-table {
+	$fancy-border-margin-bottom: (- $spacing-general / 2 - 1px);
+
+	// General border setup.
+	@include table-cells() {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin-bottom: $fancy-border-margin-bottom;
+			// border-bottom: 1px solid $border-column-separater-rgba;
+		}
+
+		@include thin-border();
+	}
+
+	@include table-header-cells() {
+		@include thick-border();
+	}
+
+	@include table-cells( ":last-child" ) {
+		@include thick-border();
+
+		// // Not sure if this is a good idea.
+		// .content-table & {
+		// 	@include thin-border();
+		// }
+
+		// Only adjust the bottom row's strokes down another pixel,
+		// so that the header doesn't squish the cells.
+		// It's better to use negative margins than negative positions.
+		margin-bottom: ($fancy-border-margin-bottom - 1px);
+	}
+
+	// Useful in arbitrary UI cases.
+	@include table-row-or-cell-style( ".divider-strong" ) {
+		// // This is because of the :last-child style above.
+		// &, .content-table & {
+			@include thick-border();
+		// }
+	}
+
+	@include table-row-or-cell-style( ".divider-none" ) {
+		@include no-border();
+	}
+
+	&.tailless {
+		@include table-cells( ":last-child" ) {
+			@include no-border();
+		}
+	}
+}
+
+//// Status Icons
+
+.content-table {
+	td.with-status {
+		// Note: This breaks down when titles are really long...
+		// maybe there's another way to do this without making a tonne of extra markup.
+		// Update: So, just adding a margin to the last element that's the width of the
+		// status icon fixes this.
+		// As far as I can tell, what's happening is this:
+		// When td.with-status gets white-space:nowrap, inline blocks still have
+		// their widths calculated as though they did wrap, which means any elements
+		// too long to fit with others end up on a new line.
+		// But, since these children are white-space:normal,
+		// their contents DO wrap, but still at the full width if they have too much content.
+		// Adding a margin to the last child is a bodge fix, but does reserve enough space
+		// to offset the icon.
+
+		white-space: nowrap;
+
+		> * {
+			white-space: normal;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		> *:last-child {
+			// 5px to make up for the space character between the inline blocks...
+			margin-right: ($forum-item-status-width + 5px);
+		}
+
+		> .forum-item-status {
+			width: $forum-item-status-width;
+		}
+	}
+}
+
+.forum-item-status {
+	font-size: 18px;
+
+	color: $text-color-dim;
+
+	.icon-hot {
+		color: $text-color-attention;
+	}
+
+	.icon-attention {
+		color: $text-color-bright;
+	}
+
+	.icon-error {
+		color: $text-color-danger;
+	}
+
+	.status-icon {
+		.comp-2 {
+			font-size: 15px;
+		}
+
+		.comp-3 {
+			font-size: 15px;
+		}
+	}
+
+	abbr {
+		border-bottom: 0 none transparent;
 	}
 }

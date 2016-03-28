@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAmBI,0GAAW;EAmBb,UAAU,EAAE,MAAM;AAnBhB,0HAAW;EAsBb,UAAU,EAAE,MAAM",
+"sources": ["selector-interpolation.scss"],
+"names": [],
+"file": "selector-interpolation.css"
+}

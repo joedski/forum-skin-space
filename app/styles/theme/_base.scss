@@ -34,3 +34,7 @@ html {
 // 		color: $text-color-link;
 // 	}
 // }
+
+.cell-top, .cell-top > * {
+	vertical-align: top;
+}

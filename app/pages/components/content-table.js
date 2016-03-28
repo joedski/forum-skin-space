@@ -1,9 +1,10 @@
 import element from '../templater/element';
+import classNames from 'classnames';
 
 function renderHeaders( columns ) {
 	return (
 		<tr>
-			{ columns.map( c => <th class={ c.class }>{ c.title }</th> ) }
+			{ columns.map( c => <th class={ classNames( c.class ) }>{ c.title }</th> ) }
 		</tr>
 	);
 }
@@ -24,10 +25,11 @@ export default {
 
 		return (
 			<div class="content-table-container">
-				<table class="content-table">
+				<table class={ classNames( 'content-table', props.class, props.classNames )}>
 					<tbody>
-						{ renderHeaders( props.data.columns ) }
-						{ props.data.rows.map( r => renderRow( r, props.data.columns ) ) }
+						{ props.data && props.data.columns ? renderHeaders( props.data.columns ) : null }
+						{ props.data && props.data.rows ? props.data.rows.map( r => renderRow( r, props.data.columns ) ) : null }
+						{ children || null }
 					</tbody>
 				</table>
 			</div>

@@ -39,13 +39,19 @@ let page = ( state ) => {
 
 				<ContentBlock>
 					<ContentTable
+						class="forum-index"
 						itemRow={( row, columns ) => {
-							let rowClass = row.class;
+							let rowClass = row[ 0 ].class;
+
+							// let rowClasses = classNames( rowClass ).split( ' ' );
+							// let has = ( className ) => rowClasses.indexOf( className ) !== -1;
 
 							return (
 								<tr class={ classNames( rowClass ) }>
 									<td class={ classNames( columns[ 0 ].class, row[ 0 ].class, 'with-status' ) }>
-										<ForumItemStatus/>
+										<ForumItemStatus
+											itemClass={ rowClass }
+											/>
 										<div class="item-title">
 											<span className="title-content">
 												<a href="#forum">{ row[ 0 ].title }</a>
@@ -75,11 +81,14 @@ let page = ( state ) => {
 						data={{
 							columns: [
 								{ class: "title", title: "Board Name" },
-								{ class: "last-post", title: "Last Post" },
-								{ class: "thread-count", title: "Threads" },
-								{ class: "post-count", title: "Posts" },
+								{ class: ["last-post", "text-right"], title: "Last Post" },
+								{ class: ["thread-count", "text-right"], title: "Threads" },
+								{ class: ["post-count", "text-right"], title: "Posts" },
 							],
 							rows: [
+								// Note: Since deku generates both an open and close tag,
+								// to use a <br> you have to set innerHTML on something,
+								// or some browsers will interpret the close tag </br> as another br.
 								[
 									{
 										class: [],
@@ -87,12 +96,113 @@ let page = ( state ) => {
 										description: "This demonstrates a title with many things under it.",
 										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
 									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<br/>In <a href="#thread-post">Thread Title</a></span>),
+									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
 									("12"),
 									("34"),
-								]
+								],
+								[
+									{
+										class: [ 'new-content' ],
+										title: "Title with Description and Subboards",
+										description: "This demonstrates a title with many things under it.",
+										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+									},
+									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
+									("12"),
+									("34"),
+								],
+								[
+									{
+										class: [ 'new-content', 'hot' ],
+										title: "Title with Description and Subboards",
+										description: "This demonstrates a title with many things under it.",
+										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+									},
+									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
+									("12"),
+									("34"),
+								],
+								[
+									{
+										class: [],
+										title: "Title with Description and Subboards",
+										description: "This demonstrates a title with many things under it.",
+										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+									},
+									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
+									("12"),
+									("34"),
+								],
+								[
+									{
+										class: [],
+										title: "Title with Description and Subboards",
+										description: "This demonstrates a title with many things under it.",
+										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+									},
+									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
+									("12"),
+									("34"),
+								],
 							]
 						}}/>
+				</ContentBlock>
+			</ContentSection>
+
+			<ContentSection>
+				<ContentBlock>
+					<ContentTable>
+						<tr>
+							<th>Beep</th>
+							<td rowspan="2" class="cell-top divider-none">
+								<ContentTable class="">
+									<tr>
+										<th>Boop</th>
+										<th>Ping</th>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr>
+										<td>Borp</td>
+										<td>Bap</td>
+									</tr>
+									<tr class="utilities">
+										<td colspan="2">Tool tool tool tool tool</td>
+									</tr>
+								</ContentTable>
+							</td>
+						</tr>
+						<tr>
+							<td class="cell-top divider-strong">
+								<div>Boop</div>
+								<div>Boop</div>
+								<div>Boop</div>
+								<div>Boop</div>
+								<div>Boop</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">Beep boop ping boop</td>
+						</tr>
+					</ContentTable>
 				</ContentBlock>
 			</ContentSection>
 		</div>

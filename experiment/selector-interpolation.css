@@ -1,0 +1,6 @@
+.foo > tbody > trnil > td, .foo > tbody > trnil > th, .foo > thead > trnil > td, .foo > thead > trnil > th {
+  text-align: center; }
+.foo > tbody > trfoo-bar > td, .foo > tbody > trfoo-bar > th, .foo > thead > trfoo-bar > td, .foo > thead > trfoo-bar > th {
+  text-align: center; }
+
+/*# sourceMappingURL=selector-interpolation.css.map */
