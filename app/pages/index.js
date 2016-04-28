@@ -78,74 +78,80 @@ let page = ( state ) => {
 								</tr>
 							);
 						}}
-						data={{
-							columns: [
-								{ class: "title", title: "Board Name" },
-								{ class: ["last-post", "text-right"], title: "Last Post" },
-								{ class: ["thread-count", "text-right"], title: "Threads" },
-								{ class: ["post-count", "text-right"], title: "Posts" },
-							],
-							rows: [
-								// Note: Since deku generates both an open and close tag,
-								// to use a <br> you have to set innerHTML on something,
-								// or some browsers will interpret the close tag </br> as another br.
-								[
-									{
-										class: [],
-										title: "Title with Description and Subboards",
-										description: "This demonstrates a title with many things under it.",
-										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
-									("12"),
-									("34"),
+						data={ (() => {
+							let lastPost = ({ member, date, thread }) => (
+									<span>Last Post by <a href="#member">{ member }</a> { date }<span innerHTML="<br>"/>In <a href="#thread-post">{ thread }</a></span>
+								);
+
+							return {
+								columns: [
+									{ class: "title", title: "Board Name" },
+									{ class: ["last-post", "text-right"], title: "Last Post" },
+									{ class: ["thread-count", "text-right"], title: "Threads" },
+									{ class: ["post-count", "text-right"], title: "Posts" },
 								],
-								[
-									{
-										class: [ 'new-content' ],
-										title: "Title with Description and Subboards",
-										description: "This demonstrates a title with many things under it.",
-										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
-									("12"),
-									("34"),
-								],
-								[
-									{
-										class: [ 'new-content', 'hot' ],
-										title: "Title with Description and Subboards",
-										description: "This demonstrates a title with many things under it.",
-										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
-									("12"),
-									("34"),
-								],
-								[
-									{
-										class: [],
-										title: "Title with Description and Subboards",
-										description: "This demonstrates a title with many things under it.",
-										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
-									("12"),
-									("34"),
-								],
-								[
-									{
-										class: [],
-										title: "Title with Description and Subboards",
-										description: "This demonstrates a title with many things under it.",
-										subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-									},
-									(<span>Last Post by <a href="#member">Member</a> Jan 23, 2016<span innerHTML="<br>"/>In <a href="#thread-post">Thread Title</a></span>),
-									("12"),
-									("34"),
-								],
-							]
-						}}/>
+								rows: [
+									// Note: Since deku generates both an open and close tag,
+									// to use a <br> you have to set innerHTML on something,
+									// or some browsers will interpret the close tag </br> as another br.
+									[
+										{
+											class: [],
+											title: "Title with Description and Subboards",
+											description: "This demonstrates a title with many things under it.",
+											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+										},
+										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
+										("12"),
+										("34"),
+									],
+									[
+										{
+											class: [ 'new-content' ],
+											title: "Title with Description and Subboards",
+											description: "This demonstrates a title with many things under it.",
+											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+										},
+										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
+										("12"),
+										("34"),
+									],
+									[
+										{
+											class: [ 'new-content', 'hot' ],
+											title: "Title with Description and Subboards",
+											description: "This demonstrates a title with many things under it.",
+											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+										},
+										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
+										("12"),
+										("34"),
+									],
+									[
+										{
+											class: [],
+											title: "Title with Description and Subboards",
+											description: "This demonstrates a title with many things under it.",
+											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+										},
+										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
+										("12"),
+										("34"),
+									],
+									[
+										{
+											class: [],
+											title: "Title with Description and Subboards",
+											description: "This demonstrates a title with many things under it.",
+											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
+										},
+										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
+										("12"),
+										("34"),
+									],
+								]
+							};
+						})() }/>
 				</ContentBlock>
 			</ContentSection>
 
