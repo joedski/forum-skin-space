@@ -13,6 +13,7 @@ import ContentHeader from './components/content-header';
 import ContentTable from './components/content-table';
 import ForumItemStatus from './components/forum-item-status';
 import ForumIndexItem from './components/forum-index-item';
+import ForumBoardItem from './components/forum-board-item';
 
 let page = ( state ) => {
 	return (
@@ -44,6 +45,20 @@ let page = ( state ) => {
 						itemRow={ ForumIndexItem }
 						columns={ require( './data/forum-index-columns.json' ) }
 						rows={ require( './data/forum-index.json' ) }
+						/>
+				</ContentBlock>
+			</ContentSection>
+
+			<ContentSection>
+				<ContentHeader>A Forum Board</ContentHeader>
+
+				<ContentBlock>
+					<ContentTable
+						class="forum-board"
+						itemRow={ ForumBoardItem }
+						columns={ require( './data/forum-board-columns.json' ) }
+						rows={ require( './data/forum-board.json' ) }
+						// controls={ ForumBoardControls }
 						/>
 				</ContentBlock>
 			</ContentSection>

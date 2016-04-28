@@ -191,18 +191,21 @@
 @mixin thick-border() {
 	&:after {
 		border-bottom: 2px solid $border-column-edge-rgba;
+		@content;
 	}
 }
 
 @mixin thin-border() {
 	&:after {
 		border-bottom: 1px solid $border-column-separater-rgba;
+		@content;
 	}
 }
 
 @mixin no-border() {
 	&:after {
 		display: none;
+		@content;
 	}
 }
 
@@ -230,7 +233,9 @@
 	}
 
 	@include table-cells( ":last-child" ) {
-		@include thick-border();
+		@include thick-border() {
+			margin-bottom: ($fancy-border-margin-bottom - 1);
+		}
 
 		// // Not sure if this is a good idea.
 		// .content-table & {

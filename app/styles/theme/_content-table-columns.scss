@@ -11,29 +11,3 @@
 		}
 	}
 }
-
-
-
-.content-table {
-	@include table-row-or-cell-style( '.new-content' ) {
-		background: $background-highlight-rgba;
-	}
-
-	@include table-row-or-cell-style( '.hot' ) {
-		color: $text-color-attention;
-		// background: $background-highlight-rgba;
-
-		.description, .subboards, .thread-starter {
-			// color: inherit;
-			color: fade-out( $text-color-attention, 0.2 );
-		}
-	}
-
-	@include table-row-or-cell-style( '.hot.new-content' ) {
-		background: $background-highlight-2-rgba;
-	}
-
-	@include table-row-or-cell-style( '.locked' ) {
-		background: $background-stripes-image;
-	}
-}

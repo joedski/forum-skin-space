@@ -1,0 +1,6 @@
+[
+	{ "class": "title", "title": "Topic Name" },
+	{ "class": ["thread-replies", "text-right"], "title": "Replies" },
+	{ "class": ["thread-views", "text-right"], "title": "Views" },
+	{ "class": ["last-post", "text-right"], "title": "Last Post" }
+]
