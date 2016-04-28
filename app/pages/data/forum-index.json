@@ -1,0 +1,54 @@
+[
+	{
+		"class": [],
+		"title": "General Discussion",
+		"description": "",
+		"subboards": [],
+		"lastPost": {
+			"member": "Real Dragons",
+			"date": "Mar 10, 2016",
+			"thread": "There should be more dragons"
+		},
+		"threadCount": "1",
+		"postCount": "12"
+	},
+	{
+		"class": [ "new-content" ],
+		"title": "Settings and Lore",
+		"description": "",
+		"subboards": [ "Solar Systems", "Influential Entities" ],
+		"lastPost": {
+			"member": "Real Dragons",
+			"date": "Jan 9, 2016",
+			"thread": "The Spage Dragon Empire in Space"
+		},
+		"threadCount": "25",
+		"postCount": "102"
+	},
+	{
+		"class": [ "new-content", "hot" ],
+		"title": "Character and Story Arcs",
+		"description": "Information specific to certain characters and story arcs as opposed to general history or other setting information",
+		"subboards": [],
+		"lastPost": {
+			"member": "Imitation Dragons",
+			"date": "Jan 23, 2016",
+			"thread": "The Misadventures of Kilroy the Undercover Human"
+		},
+		"threadCount": "7",
+		"postCount": "25"
+	},
+	{
+		"class": [ "hot" ],
+		"title": "Omaké",
+		"description": "Silly non-canon, OOC asides",
+		"subboards": [ "Ultimate Crossovers of Supreme Destiny", "Hey There, Space Man" ],
+		"lastPost": {
+			"member": "Bees",
+			"date": "Jan 23, 2016",
+			"thread": "The Heinous Salacity of Lord Oberratethex XXVI"
+		},
+		"threadCount": "12",
+		"postCount": "34"
+	}
+]

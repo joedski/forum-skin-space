@@ -8,6 +8,7 @@ function wrap( contents, context ) {
 	return (
 `<!DOCTYPE html>
 <html lang="en">
+<!-- Note: Ignore the noscript tags. -->
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,0 +1,6 @@
+[
+	{ "class": "title", "title": "Board Name" },
+	{ "class": ["last-post", "text-right"], "title": "Last Post" },
+	{ "class": ["thread-count", "text-right"], "title": "Threads" },
+	{ "class": ["post-count", "text-right"], "title": "Posts" }
+]

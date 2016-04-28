@@ -100,9 +100,9 @@ gulp.task( 'build-page-scripts-deps', () => {
 		;
 })
 
-gulp.task( 'build-demo-pages', [ 'babel-demo-pages' ], () => {
+gulp.task( 'build-demo-pages', [ 'copy-demo-pages-data', 'babel-demo-pages' ], () => {
+	// Note: We only need the js files directly in pages.node.  The rest are support files.
 	let stream = gulp.src( 'app/pages.node/*.js', {
-			base: 'app/pages.node',
 			// We only need the names here...
 			read: false
 		})
@@ -122,8 +122,16 @@ gulp.task( 'build-demo-pages', [ 'babel-demo-pages' ], () => {
 	return stream;
 });
 
+gulp.task( 'copy-demo-pages-data', () => {
+	let stream = gulp.src( 'app/pages/**/*.json' )
+		.pipe( gulp.dest( 'app/pages.node' ) )
+		;
+
+	return stream;
+});
+
 gulp.task( 'babel-demo-pages', () => {
-	let stream = gulp.src( 'app/pages/**/*.js', { base: 'app/pages' })
+	let stream = gulp.src( 'app/pages/**/*.js' )
 		.pipe( gBabel() )
 		.pipe( gulp.dest( 'app/pages.node' ) )
 		;

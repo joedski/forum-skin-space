@@ -12,6 +12,7 @@ import ContentBlock from './components/content-block';
 import ContentHeader from './components/content-header';
 import ContentTable from './components/content-table';
 import ForumItemStatus from './components/forum-item-status';
+import ForumIndexItem from './components/forum-index-item';
 
 let page = ( state ) => {
 	return (
@@ -40,118 +41,10 @@ let page = ( state ) => {
 				<ContentBlock>
 					<ContentTable
 						class="forum-index"
-						itemRow={( row, columns ) => {
-							let rowClass = row[ 0 ].class;
-
-							// let rowClasses = classNames( rowClass ).split( ' ' );
-							// let has = ( className ) => rowClasses.indexOf( className ) !== -1;
-
-							return (
-								<tr class={ classNames( rowClass ) }>
-									<td class={ classNames( columns[ 0 ].class, row[ 0 ].class, 'with-status' ) }>
-										<ForumItemStatus
-											itemClass={ rowClass }
-											/>
-										<div class="item-title">
-											<span className="title-content">
-												<a href="#forum">{ row[ 0 ].title }</a>
-											</span>
-											{ row[ 0 ].description
-												? <div class="item-detail description">{row[ 0 ].description}</div>
-												: null }
-											{ row[ 0 ].subboards
-												? <div class="item-detail subboards">Subboards: {
-													row[ 0 ].subboards.map( ( sb, i ) => ([ (i ? ', ' : null), <a href="#subboard">{sb}</a>]) )
-												}</div>
-												: null }
-										</div>
-									</td>
-									<td class={ classNames( columns[ 1 ].class ) }>
-										{ row[ 1 ] }
-									</td>
-									<td class={ classNames( columns[ 2 ].class ) }>
-										{ row[ 2 ] }
-									</td>
-									<td class={ classNames( columns[ 3 ].class ) }>
-										{ row[ 3 ] }
-									</td>
-								</tr>
-							);
-						}}
-						data={ (() => {
-							let lastPost = ({ member, date, thread }) => (
-									<span>Last Post by <a href="#member">{ member }</a> { date }<span innerHTML="<br>"/>In <a href="#thread-post">{ thread }</a></span>
-								);
-
-							return {
-								columns: [
-									{ class: "title", title: "Board Name" },
-									{ class: ["last-post", "text-right"], title: "Last Post" },
-									{ class: ["thread-count", "text-right"], title: "Threads" },
-									{ class: ["post-count", "text-right"], title: "Posts" },
-								],
-								rows: [
-									// Note: Since deku generates both an open and close tag,
-									// to use a <br> you have to set innerHTML on something,
-									// or some browsers will interpret the close tag </br> as another br.
-									[
-										{
-											class: [],
-											title: "Title with Description and Subboards",
-											description: "This demonstrates a title with many things under it.",
-											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-										},
-										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
-										("12"),
-										("34"),
-									],
-									[
-										{
-											class: [ 'new-content' ],
-											title: "Title with Description and Subboards",
-											description: "This demonstrates a title with many things under it.",
-											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-										},
-										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
-										("12"),
-										("34"),
-									],
-									[
-										{
-											class: [ 'new-content', 'hot' ],
-											title: "Title with Description and Subboards",
-											description: "This demonstrates a title with many things under it.",
-											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-										},
-										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
-										("12"),
-										("34"),
-									],
-									[
-										{
-											class: [],
-											title: "Title with Description and Subboards",
-											description: "This demonstrates a title with many things under it.",
-											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-										},
-										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
-										("12"),
-										("34"),
-									],
-									[
-										{
-											class: [],
-											title: "Title with Description and Subboards",
-											description: "This demonstrates a title with many things under it.",
-											subboards: [ "Subboard 1", "Subboard 2", "Subboard 3" ]
-										},
-										(lastPost( "Member", "Jan 23, 2016", "Thread Title" )),
-										("12"),
-										("34"),
-									],
-								]
-							};
-						})() }/>
+						itemRow={ ForumIndexItem }
+						columns={ require( './data/forum-index-columns.json' ) }
+						rows={ require( './data/forum-index.json' ) }
+						/>
 				</ContentBlock>
 			</ContentSection>
 

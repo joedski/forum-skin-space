@@ -23,12 +23,20 @@ export default {
 	render({ props, children }) {
 		let renderRow = props.itemRow || defaultRenderRow;
 
+		if( typeof renderRow !== 'function' ) {
+			let ItemRow = renderRow;
+
+			renderRow = ( row ) => (
+				<ItemRow row={ row } columns={ props.columns } />
+			);
+		}
+
 		return (
 			<div class="content-table-container">
 				<table class={ classNames( 'content-table', props.class, props.classNames )}>
 					<tbody>
-						{ props.data && props.data.columns ? renderHeaders( props.data.columns ) : null }
-						{ props.data && props.data.rows ? props.data.rows.map( r => renderRow( r, props.data.columns ) ) : null }
+						{ props.columns ? renderHeaders( props.columns ) : null }
+						{ props.rows ? props.rows.map( renderRow ) : null }
 						{ children || null }
 					</tbody>
 				</table>
