@@ -72,8 +72,8 @@ function statusIconChildrenFromProps({ newContent, locked, poll, sticky, hot }) 
 
 	if( poll ) {
 		children.push( <i className={ classNames( 'fa', 'fa-bar-chart', {
-			'icon-hot': hot && ! newContent,
-			'icon-attention': newContent,
+			'icon-hot': hot,
+			'icon-attention': newContent && ! hot,
 		})}></i> );
 	}
 

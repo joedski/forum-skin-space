@@ -14,6 +14,7 @@ import ContentTable from './components/content-table';
 import ForumItemStatus from './components/forum-item-status';
 import ForumIndexItem from './components/forum-index-item';
 import ForumBoardItem from './components/forum-board-item';
+import ForumControls from './components/forum-controls';
 
 let page = ( state ) => {
 	return (
@@ -52,15 +53,16 @@ let page = ( state ) => {
 			<ContentSection>
 				<ContentHeader>A Forum Board</ContentHeader>
 
+				<ForumControls.ForumBoard/>
 				<ContentBlock>
 					<ContentTable
 						class="forum-board"
 						itemRow={ ForumBoardItem }
 						columns={ require( './data/forum-board-columns.json' ) }
 						rows={ require( './data/forum-board.json' ) }
-						// controls={ ForumBoardControls }
 						/>
 				</ContentBlock>
+				<ForumControls.ForumBoard/>
 			</ContentSection>
 
 			<ContentSection>

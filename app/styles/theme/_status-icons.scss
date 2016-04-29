@@ -1,0 +1,50 @@
+
+.forum-item-status {
+	font-size: 18px;
+
+	color: $text-color-dim;
+
+	.icon-hot {
+		color: $text-color-attention;
+	}
+
+	.icon-attention {
+		color: $text-color-bright;
+	}
+
+	.icon-error {
+		color: $text-color-danger;
+	}
+
+	.status-icon {
+		.comp-2 {
+			font-size: 15px;
+		}
+
+		.comp-3 {
+			font-size: 15px;
+		}
+	}
+
+	abbr {
+		border-bottom: 0 none transparent;
+	}
+}
+
+.forum-item-status .status-icon {
+	&.comp-2 {
+		font-size: #{(14/16)}em;
+
+		.fa + .fa {
+			margin-left: -0.25em;
+		}
+	}
+
+	&.comp-3 {
+		font-size: #{(14/18)}em;
+
+		.fa + .fa {
+			margin-left: -0.3em;
+		}
+	}
+}

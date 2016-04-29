@@ -1,0 +1,15 @@
+.btn {
+	.fa + .btn-label, .btn-label + .fa {
+		margin-left: 0.5em;
+	}
+}
+
+.forum-controls {
+	@include clearfix();
+
+	padding: $spacing-general 0;
+
+	.btn + .btn {
+		margin-left: $padding-base-horizontal;
+	}
+}
